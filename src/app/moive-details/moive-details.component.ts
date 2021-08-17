@@ -27,13 +27,13 @@ export class MoiveDetailsComponent implements OnInit {
    }
 
    ngOnInit(): void {
-     this.getMovie();
+     this.getMovie(1);
   }
 
 
-   getMovie(){
+   getMovie(tempId:number){
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.movie = this.movies.find(movie => id ==movie.id);
+    this.movie = this.movies.find(movie => tempId ==movie.id);
 
 
    }

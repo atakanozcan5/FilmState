@@ -2,3 +2,51 @@
 <p-dropdown [options]="items" [(ngModel)]="item" placeholder="Select Item" [virtualScroll]="true" [itemSize]="31"
 	[filter]="false"></p-dropdown>
 
+	<div class="wrapper">
+		<div class="main_card">
+			<div class="card_left">
+				<div class="card_datails">
+					<h1>{{movie.Name}}</h1>
+					<div class="card_cat">
+						<p class="PG">PG - 13</p>
+						<p class="year">{{movie.date}}</p>
+						<p class="genre">{{movie.Genre}} | Adventure </p>
+						<p class="time">{{movie.Time}}</p>
+					</div>
+					<p class="disc">
+						{{movie.Description}}</p>
+					
+				<div class="social-btn">
+			<!-- WATCH TRAILER-->
+					<button>
+						<i class="fas fa-play"></i> SEE TRAILER
+					</button>
+					<!-- GET-->
+					<button>
+						<i class="fas fa-download"></i> DOWNLOAD
+					</button>
+					<!--USERS RATINGS-->
+					<button>
+						<i class="fas fa-thumbs-up"></i> 97%
+					</button>
+					<!--BOOKMARK-->
+					<button>
+						<i class="fas fa-star"></i>
+					</button>
+				</div>	
+				</div>
+			</div>
+			<div class="card_right">
+				<div class="img_container">
+					<img src="https://upload.wikimedia.org/wikipedia/en/f/ff/MI_%E2%80%93_Fallout.jpg" alt="">
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	
+	
+	
+	<!-- FOLLOW -->
+	<a class="Follow" href="https://codepen.io/ZaynAlaoudi/" target="blank_"></a>
+	

@@ -2,10 +2,10 @@ export interface Movie{
     id:number;
     Name:string;
     IMDB:number;
-    date:Date;
+    date:number;
     Description:string;
     Time:string;
-    Gender:string[];
+    Genre:string[];
     cast:Cast[];
     PhotoLink:string;
 
