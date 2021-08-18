@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from '../../home/home.component';
-import { UserComponent } from '../../user/user.component';
+import { ActorComponent } from '../../actor/actor.component';
 import { TablesComponent } from '../../tables/tables.component';
 import { GenreComponent } from '../../genre/genre.component';
 import { InfoComponent } from '../../info/info.component';
@@ -11,7 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
-    { path: 'user',           component: UserComponent },
+    { path: 'actor',           component: ActorComponent },
     { path: 'table',          component: TablesComponent },
     { path: 'genre',     component: GenreComponent },
     { path: 'info',          component: InfoComponent },

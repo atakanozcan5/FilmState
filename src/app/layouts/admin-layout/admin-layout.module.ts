@@ -9,7 +9,7 @@ import { NguiMapModule} from '@ngui/map';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
 import { HomeComponent } from '../../home/home.component';
-import { UserComponent } from '../../user/user.component';
+import { ActorComponent } from '../../actor/actor.component';
 import { TablesComponent } from '../../tables/tables.component';
 import { GenreComponent } from '../../genre/genre.component';
 import { InfoComponent } from '../../info/info.component';
@@ -28,7 +28,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
   ],
   declarations: [
     HomeComponent,
-    UserComponent,
+    ActorComponent,
     TablesComponent,
     GenreComponent,
     InfoComponent,
