@@ -1,0 +1,56 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "EldinterndbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "MovieDbContext",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "MovieAPI",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "eld_movie.genre",
+         "ObjectType": 0
+      },
+      {
+         "Name": "eld_movie.person_title",
+         "ObjectType": 0
+      },
+      {
+         "Name": "eld_movie.movie_person",
+         "ObjectType": 0
+      },
+      {
+         "Name": "eld_movie.person",
+         "ObjectType": 0
+      },
+      {
+         "Name": "eld_movie.movie_genre",
+         "ObjectType": 0
+      },
+      {
+         "Name": "eld_movie.movie",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": ".eldinterndb",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}
