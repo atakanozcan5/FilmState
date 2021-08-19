@@ -1,39 +1,213 @@
+<body>
+    <head>
+        <link rel="stylesheet" href="info.component.css">
+    </head>
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
+            <!-- =======================MOVIE CARD======================= -->
+            <div class="main_card">
+                <div class="card_left">
+                    <div class="card_datails">
+                        <h1>{{movie.Name}}</h1>
+                        <div class="card_cat">
+                            <p class="PG">PG - 13</p>
+                            <p class="PG">{{movie.date}}</p>
+                            <p class="PG">{{movie.Genre}}</p>
+                            <p class="PG">{{movie.Time}}</p>
+                        </div>
+                        <p class="disc">
+                            {{movie.Description}}</p>
+                        
+                    <!-- <div class="social-btn">
+                
+                        <button>
+                            <i class="fa fa-play"></i> SEE TRAILER
+                        </button>
+                        
+                        <button>
+                            <i class="fa fa-download"></i> DOWNLOAD
+                        </button>
+                        
+                        <button>
+                            <i class="fa fa-thumbs-up"></i> 97%
+                        </button>
+                        
+                        <button>
+                            <i class="fa fa-star"></i>
+                        </button>
+                    </div>	 -->
+                    </div>
+                </div>
+                <div class="card_right">
+                    <div class="img_container">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/MI_%E2%80%93_Fallout.jpg" alt="">
+                        </div>
+                        
+                    </div>
+                </div>
+            <!-- =======================table cast======================= --> 
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="header">
-                        <h4 class="title">Table on Plain Background</h4>
-                        <p class="category">Here is a subtitle for this table</p>
-                    </div>
-                    <div class="content table-responsive table-full-width">
+                        <h4 class="title">Cast Table</h4>
+                    </div>                       
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
                                     <th></th>
                                     <th></th>
-                                </tr>
-                                
+                                </tr>  
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of tableData2.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <button class="btn btn-danger">delete</button>
+                                        <button class="bn33">
+                                            
+                                                <div class="column">
+                                                    <div class="fa fa-trash">
+                                                
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>
+                                                        Delete
+                                                    </div>
+                                                </div>
+                                        
+                                        </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary">Update</button>
+                                        <button class="bn33">
+                                            <div class="column">
+                                                <div class="fa fa-pencil">
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div>
+                                                    Update
+                                                </div>
+                                            </div>
+                                        </button>
                                     </td>
-                                </tr>
-                                
+                                </tr>  
                             </tbody>
                         </table>
-                    </div>
                 </div>
             </div>
-            
+            <!-- =======================table writers======================= --> 
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="header">
+                        <h4 class="title">Writers Table</h4>
+                    </div>                       
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>  
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData2.dataRows">
+                                    <td *ngFor="let cell of row">{{cell}}</td>
+                                    <td>
+                                        <button class="bn33">
+                                            
+                                                <div class="column">
+                                                    <div class="fa fa-trash">
+                                                
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>
+                                                        Delete
+                                                    </div>
+                                                </div>
+                                        
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="bn33">
+                                            <div class="column">
+                                                <div class="fa fa-pencil">
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div>
+                                                    Update
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </td>
+                                </tr>  
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+             <!-- =======================table directors======================= --> 
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="header">
+                        <h4 class="title">Directors Table</h4>
+                    </div>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>  
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData2.dataRows">
+                                    <td *ngFor="let cell of row">{{cell}}</td>
+                                    <td>
+                                        <button class="bn33">
+                                            
+                                                <div class="column">
+                                                    <div class="fa fa-trash">
+                                                
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>
+                                                        Delete
+                                                    </div>
+                                                </div>
+                                        
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="bn33">
+                                            <div class="column">
+                                                <div class="fa fa-pencil">
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div>
+                                                    Update
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </td>
+                                </tr>  
+                            </tbody>
+                        </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+
+</body>

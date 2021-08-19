@@ -11,6 +11,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>Info</th>
                                     <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
                                     <th></th>
                                     <th></th>
@@ -19,12 +20,46 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of tableData2.dataRows">
+                                    <td>
+                                        <button class="bn34">
+                                            
+                                            <div class="column">
+                                                <div class="fa fa-info">
+                                            
+                                                </div>
+                                            </div>                                    
+                                    </button>
+                                    </td>
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <button class="btn btn-danger">delete</button>
+                                        <button class="bn33">
+                                            
+                                                <div class="column">
+                                                    <div class="fa fa-trash">
+                                                
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>
+                                                        Delete
+                                                    </div>
+                                                </div>
+                                        
+                                        </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary">Update</button>
+                                        <button class="bn33">
+                                            <div class="column">
+                                                <div class="fa fa-pencil">
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div>
+                                                    Update
+                                                </div>
+                                            </div>
+                                        </button>
                                     </td>
                                 </tr>
                                 

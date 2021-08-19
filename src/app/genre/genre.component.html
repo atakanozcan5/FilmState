@@ -1,3 +1,7 @@
+<body>
+    <head>
+        <link rel="stylesheet" href="genre.component.css">
+    </head>
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -21,10 +25,34 @@
                                 <tr *ngFor="let row of tableData2.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <button class="btn btn-danger">delete</button>
+                                        <button class="bn33">
+                                            
+                                                <div class="column">
+                                                    <div class="fa fa-trash">
+                                                
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div>
+                                                        Delete
+                                                    </div>
+                                                </div>
+                                        
+                                        </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary">Update</button>
+                                        <button class="bn33">
+                                            <div class="column">
+                                                <div class="fa fa-pencil">
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div>
+                                                    Update
+                                                </div>
+                                            </div>
+                                        </button>
                                     </td>
                                 </tr>
                                 
@@ -37,3 +65,9 @@
         </div>
     </div>
 </div>
+
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+
+</body>
