@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movies } from 'app/mocks/mock-movies';
 import { Movie } from 'app/Movie';
+import { MovieService } from 'app/movie.service';
 import { SelectItem } from 'primeng/api';
 
 declare interface TableData {
@@ -20,7 +21,8 @@ export class InfoComponent implements OnInit {
   item: string;
   movies:Movie[];
   movie:Movie;
-  constructor(private route:ActivatedRoute) { 
+  movieString:string;
+  constructor(private route:ActivatedRoute, private movieService: MovieService) { 
     this.items = [];
     for (let i = 0; i < 10; i++) {
       this.items.push({label: 'Item ' + i, value: 'Item ' + i});
@@ -30,7 +32,7 @@ export class InfoComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.getMovie(1);
+    this.getMovie("1");
     this.tableData2 = {
       headerRow: [ 'ID', 'Name', 'Code', ],
       dataRows: [
@@ -38,10 +40,10 @@ export class InfoComponent implements OnInit {
       ]
     };
   }
-  getMovie(tempId:number){
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.movie = this.movies.find(movie => tempId ==movie.id);
-
+  getMovie(tempId:string){
+    const id = Number(this.route.snapshot.paramMap.get('guid'));
+    this.movie = this.movies.find(movie => tempId ===movie.guid);
+   this.movieService.getMovieByGuid().subscribe(m => this.movie = m);
 
    }
 

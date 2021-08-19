@@ -24,7 +24,8 @@ namespace MovieAPI.BusinessLogic.Concrete
 
         public Movie GetMovieByGuid(Guid guid)
         {
-            return movieRepository.GetMovieByUUID(guid);
+            var result = movieRepository.GetMovieByUUID(guid);
+            return result;
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oguzhan.akdogan\\source\\repos\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {}
+    "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oguzhan.akdogan\\source\\repos\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {
+    "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oguzhan.akdogan\\source\\repos\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
+        "projectUniqueName": "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
         "projectName": "MovieAPI",
-        "projectPath": "C:\\Users\\oguzhan.akdogan\\source\\repos\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
+        "projectPath": "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
         "packagesPath": "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oguzhan.akdogan\\source\\repos\\MovieAPI\\MovieAPI\\obj\\",
+        "outputPath": "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -54,6 +54,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

@@ -9,15 +9,25 @@
             <div class="main_card">
                 <div class="card_left">
                     <div class="card_datails">
-                        <h1>{{movie.Name}}</h1>
+                        <h1>{{movie.name}}</h1>
                         <div class="card_cat">
-                            <p class="PG">PG - 13</p>
-                            <p class="PG">{{movie.date}}</p>
-                            <p class="PG">{{movie.Genre}}</p>
-                            <p class="PG">{{movie.Time}}</p>
+                            <p class="PG">IMDB: {{movie.rate}}</p>
+                            <!-- <p class="PG">{{movie.movieGenre}}</p> -->
+                            <p class="PG">{{movie.releaseDate}}</p>
+                            <p class="PG">{{movie.runtime}} min</p>
                         </div>
-                        <p class="disc">
-                            {{movie.Description}}</p>
+                        <p class="disc">{{movie.description}}</p>
+
+                
+                        <hr>
+                           
+
+                    <div style="margin-top: 12%; text-align: center;">
+                    <div style="float: left;" *ngFor="let genre of movie.movieGenre">
+                        <p>{{genre}} </p>
+                        </div>
+                     </div>
+                      
                         
                     <!-- <div class="social-btn">
                 
@@ -209,5 +219,5 @@
 
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
-
+<p> {{movieString}} </p>
 </body>

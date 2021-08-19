@@ -1,13 +1,13 @@
 export interface Movie{
-    id:number;
-    Name:string;
-    IMDB:number;
-    date:number;
-    Description:string;
-    Time:string;
-    Genre:string[];
-    cast:Cast[];
-    PhotoLink:string;
+    guid:string;
+    name:string;
+    rate:number;
+    releaseDate:string;
+    posterUrl:string;
+    description:string;
+    runtime:number;
+    movieGenre:Genre[];
+    moviePerson:Person[];
 
 }
 
@@ -16,4 +16,18 @@ export interface Cast{
     BirthDate:Date;
     Sex:boolean;
 
+}
+
+export interface Genre{
+    guid:string;
+    name:string;
+    code:string;
+}
+
+export interface Person{
+    guid:string;
+    name:string;
+    surname:string;
+    birthdate:string;
+    sex:string;
 }

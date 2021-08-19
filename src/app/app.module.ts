@@ -15,6 +15,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { MoiveDetailsComponent } from './moive-details/moive-details.component';
 import { DropdownModule } from 'primeng/dropdown';
 
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,

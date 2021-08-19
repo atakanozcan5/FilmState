@@ -33,7 +33,9 @@ namespace MovieAPI.Controller
         [HttpGet("{id}")]
         public Movie Get(Guid id)
         {
-            return this.service.GetMovieByGuid(id);
+            Console.WriteLine("request geldi!");
+            var result = this.service.GetMovieByGuid(id);
+            return result;
         }
     }
 }

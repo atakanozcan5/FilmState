@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yB9dcVXBDv72PnEORd9K9WkUhuwURyL9UUogrvvaZ5092mhr7m1XXs8nvUTp5gmhnAdkPZnDjEBIMoIrKQ9wQA==",
+  "dgSpecHash": "dm/bSQM4NF+B0zYYHcTINocdoNe8vl0rfWs5cbbqJb6ouJ0SD0wn7njlB4q9jZ7LXA18Bm9hcds9Ps9tqrXy/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oguzhan.akdogan\\source\\repos\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
+  "projectFilePath": "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -21,6 +21,7 @@
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\npgsql\\5.0.7\\npgsql.5.0.7.nupkg.sha512",
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\5.0.7\\npgsql.entityframeworkcore.postgresql.5.0.7.nupkg.sha512",
     "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

@@ -6,10 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MovieAPI.BusinessLogic.Abstract;
 using MovieAPI.BusinessLogic.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Newtonsoft.Json.Serialization;
 
 namespace MovieAPI
 {
@@ -25,8 +22,19 @@ namespace MovieAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    });
+            });
             services.AddScoped<IMovieService, MovieManager>();
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.MaxDepth = 3300);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +55,8 @@ namespace MovieAPI
             //app.UseStaticFiles();
 
             app.UseRouting();
-
-           // app.UseAuthorization();
+            app.UseCors("AllowAll");
+            // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
