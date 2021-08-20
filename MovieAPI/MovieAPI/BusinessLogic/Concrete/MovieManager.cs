@@ -22,10 +22,15 @@ namespace MovieAPI.BusinessLogic.Concrete
             return movieRepository.GetAllMovies();
         }
 
-        public Movie GetMovieByGuid(Guid guid)
+        public string GetMovieByGuid(Guid guid)
         {
             var result = movieRepository.GetMovieByUUID(guid);
             return result;
+        }
+
+        public List<MovieGenre> GetMovieGenres(Guid id)
+        {
+           return this.movieRepository.GetMovieGenres(id);
         }
     }
 }

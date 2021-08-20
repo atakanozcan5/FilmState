@@ -10,7 +10,9 @@ namespace MovieAPI.BusinessLogic.Abstract
     {
         List<Movie> GetAllMovies();
 
-        Movie GetMovieByGuid(Guid guid);
+        string GetMovieByGuid(Guid guid);
+
+        List<MovieGenre> GetMovieGenres(Guid id);
 
     }
 }

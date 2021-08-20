@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieAPI.Controller
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     public class MovieController:ControllerBase
     {
        
@@ -30,12 +30,21 @@ namespace MovieAPI.Controller
             return this.service.GetAllMovies();
         }
 
+        [Route("getmovie")]
         [HttpGet("{id}")]
-        public Movie Get(Guid id)
+        public string Get(Guid id)
         {
             Console.WriteLine("request geldi!");
             var result = this.service.GetMovieByGuid(id);
             return result;
+        }
+
+        [Route("genre")]
+        [HttpGet("{id}")]
+        public List<MovieGenre> GetMovieGenre(Guid id)
+        {
+            return this.service.GetMovieGenres(id);
+
         }
     }
 }

@@ -9,9 +9,11 @@ namespace MovieAPI.DAL.Abstract
     interface IMovieRepository
     {
         List<Movie> GetAllMovies();
-        Movie GetMovieByUUID(Guid guid);
+        string GetMovieByUUID(Guid guid);
         bool CreateMovie(Movie movie);
         bool UpdateMovie(Movie movie);
         bool DeleteMovie(Movie movie);
+
+        List<MovieGenre> GetMovieGenres(Guid guid);
     }
 }

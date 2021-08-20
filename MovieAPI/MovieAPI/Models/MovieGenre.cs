@@ -12,6 +12,7 @@ namespace MovieAPI.Models
         public Guid MovieGuid { get; set; }
         public Guid GenreGuid { get; set; }
 
+        
         public virtual Genre GenreGu { get; set; }
         public virtual Movie MovieGu { get; set; }
     }
