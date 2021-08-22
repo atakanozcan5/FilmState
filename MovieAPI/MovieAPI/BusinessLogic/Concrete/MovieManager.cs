@@ -1,11 +1,11 @@
-﻿using MovieAPI.BusinessLogic.Abstract;
+﻿using MovieAPI.Bean;
+using MovieAPI.BusinessLogic.Abstract;
 using MovieAPI.DAL.Abstract;
 using MovieAPI.DAL.Concrete;
 using MovieAPI.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace MovieAPI.BusinessLogic.Concrete
 {
@@ -17,12 +17,12 @@ namespace MovieAPI.BusinessLogic.Concrete
         {
             movieRepository = new MovieRepository();
         }
-        public List<Movie> GetAllMovies()
+        public List<Movie> GetAllMovies(int a, int b)
         {
-            return movieRepository.GetAllMovies();
+            return movieRepository.GetAllMovies(a,b);
         }
 
-        public string GetMovieByGuid(Guid guid)
+        public Film GetMovieByGuid(Guid guid)
         {
             var result = movieRepository.GetMovieByUUID(guid);
             return result;

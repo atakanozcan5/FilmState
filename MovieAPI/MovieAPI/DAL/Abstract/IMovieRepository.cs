@@ -1,4 +1,5 @@
-﻿using MovieAPI.Models;
+﻿using MovieAPI.Bean;
+using MovieAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,8 @@ namespace MovieAPI.DAL.Abstract
 {
     interface IMovieRepository
     {
-        List<Movie> GetAllMovies();
-        string GetMovieByUUID(Guid guid);
+        List<Movie> GetAllMovies(int a, int b);
+        Film GetMovieByUUID(Guid guid);
         bool CreateMovie(Movie movie);
         bool UpdateMovie(Movie movie);
         bool DeleteMovie(Movie movie);

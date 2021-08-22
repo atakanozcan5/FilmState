@@ -13,8 +13,8 @@
                         <div class="card_cat">
                             <p class="PG">IMDB: {{movie.rate}}</p>
                             <!-- <p class="PG">{{movie.movieGenre}}</p> -->
-                            <p class="PG">{{movie.releaseDate}}</p>
-                            <p class="PG">{{movie.runtime}} min</p>
+                            <p class="PG">{{movie.fullYear}}</p>
+                            <p class="PG">{{movie.runTime}} min</p>
                         </div>
                         <p class="disc">{{movie.description}}</p>
 
@@ -22,12 +22,12 @@
                         <hr>
                            
 
-                    <div style="margin-top: 12%; text-align: center;">
-                    <div style="float: left;" *ngFor="let genre of movie.movieGenre">
-                        <p>{{genre}} </p>
+                    <div style="align-items: center;margin-left: 25%;">
+                        <div style=" align-self: center;margin-left: 10px; float: left;" *ngFor="let genre of movie.genres">
+                        <p> {{genre}}</p>
                         </div>
-                     </div>
-                      
+                   
+                    </div>  
                         
                     <!-- <div class="social-btn">
                 
@@ -51,7 +51,7 @@
                 </div>
                 <div class="card_right">
                     <div class="img_container">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/MI_%E2%80%93_Fallout.jpg" alt="">
+                        <img src="{{movie.posterURL}}" alt="">
                         </div>
                         
                     </div>
@@ -169,7 +169,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                    <th *ngFor="let cell of DirectorTable.headerRow">{{ cell }}</th>
                                     <th></th>
                                     <th></th>
                                 </tr>  

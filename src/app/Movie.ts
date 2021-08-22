@@ -1,13 +1,17 @@
 export interface Movie{
     guid:string;
     name:string;
+    runTime:number;
     rate:number;
-    releaseDate:string;
-    posterUrl:string;
+    releaseDate:Date;
     description:string;
-    runtime:number;
-    movieGenre:Genre[];
-    moviePerson:Person[];
+    posterURL:string;
+    genres:string[];
+    personTitles:string[];
+    moviePersonNames:string[];
+    moviePersonSurnames:string[];
+    moviePersonBirthDates:Date[];
+    fullYear?:number;
 
 }
 

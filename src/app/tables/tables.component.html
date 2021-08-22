@@ -19,13 +19,13 @@
                                 
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of tableData2.dataRows">
+                                <tr *ngFor="let row of tableData2.dataRows; let i = index;">
                                     <td>
-                                        <button class="bn34">
+                                        <button class="bn34" [routerLink]="['/info/',guidArray[i]]" (click) = "specifyRouteInput(i)">
                                             
                                             <div class="column">
                                                 <div class="fa fa-info">
-                                            
+                                                    <a ></a>
                                                 </div>
                                             </div>                                    
                                     </button>

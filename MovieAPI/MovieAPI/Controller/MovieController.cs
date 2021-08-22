@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MovieAPI.Bean;
 using MovieAPI.BusinessLogic.Abstract;
 using MovieAPI.Models;
 using System;
@@ -18,26 +19,31 @@ namespace MovieAPI.Controller
             this.service = service;
         }
        
+
         [Route("oguz")]
         public string merhaba()
         {
             return "merhaba";
         }
 
-        [HttpGet]
-        public List<Movie> Get()
+
+        [HttpGet("{a,b}")]
+        [Route("getall")]
+        public List<Movie> Get(int a ,int b)
         {
-            return this.service.GetAllMovies();
+            return this.service.GetAllMovies(a,b);
         }
+
 
         [Route("getmovie")]
         [HttpGet("{id}")]
-        public string Get(Guid id)
+        public Film Get(Guid id)
         {
             Console.WriteLine("request geldi!");
-            var result = this.service.GetMovieByGuid(id);
+            Film result = this.service.GetMovieByGuid(id);
             return result;
         }
+
 
         [Route("genre")]
         [HttpGet("{id}")]

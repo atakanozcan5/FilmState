@@ -1,4 +1,5 @@
-﻿using MovieAPI.Models;
+﻿using MovieAPI.Bean;
+using MovieAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ namespace MovieAPI.BusinessLogic.Abstract
 {
    public interface IMovieService
     {
-        List<Movie> GetAllMovies();
+        List<Movie> GetAllMovies(int a, int b);
 
-        string GetMovieByGuid(Guid guid);
+        Film GetMovieByGuid(Guid guid);
 
         List<MovieGenre> GetMovieGenres(Guid id);
 

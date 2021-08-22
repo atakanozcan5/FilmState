@@ -21,7 +21,7 @@ namespace MovieAPI.Models
         public string PosterUrl { get; set; }
         public string Description { get; set; }
         public int? Runtime { get; set; }
-
+       // public List<Genre> genres { get; set; }
         public virtual ICollection<MovieGenre> MovieGenre { get; set; }
         public virtual ICollection<MoviePerson> MoviePerson { get; set; }
     }

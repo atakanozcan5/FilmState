@@ -28,54 +28,57 @@ namespace MovieAPI.DAL.Concrete
             return false;
         }
 
-        public List<Movie> GetAllMovies()
+        public List<Movie> GetAllMovies(int a, int b)
         {
             using (var db = new EldinterndbContext())
             {
-                return db.Movie.ToList();
+                return db.Movie.Skip(a).Take(b).ToList();
             }
         }
 
-        public string GetMovieByUUID(Guid guid)
+        public Film GetMovieByUUID(Guid guid)
         {
             using (var db = new EldinterndbContext())
-            {
+            { 
 
-                //var movie = db.Movie.Include(s => s.MovieGenre)
-                //                    .ThenInclude(s=>s.GenreGu) .First(m => m.Guid == guid);
-
-                //Collection<MovieGenre> movieGenres = db.MovieGenre.Where(mg => mg.MovieGuid == guid).FirstOrDefault();
                 var ee = db.Movie
-                        .Join(db.MovieGenre, 
-                                 m => m.Guid, mg => mg.MovieGuid
-                                 ,(x, y) => new { movieName = x.Name, movidesc=x.Description,movieId=x.Guid, GenreId=y.GenreGuid })
-                    
-                        .Join(db.Genre
-                                ,g=>g.GenreId,g=>g.Guid
-                                ,(x,y)=>new {x.movidesc,y.Name,x.movieId ,x.movieName})
+                    .Where(m => m.Guid == guid)
+                    .Include(m => m.MovieGenre).ThenInclude(mg => mg.GenreGu)
+                    .Include(m => m.MoviePerson).ThenInclude(mp => mp.PersonGu)
+                    .Include(m => m.MoviePerson).ThenInclude(mp => mp.PersonTitleGu)
+                    .AsNoTracking().ToList();
+                Movie movie = ee[0];
+              //  Console.WriteLine(ee[0].MovieGenre.ToList()[0].GenreGu.Name);
+               List<string> genres= movie
+                    .MovieGenre
+                    .ToList()
+                    .Select(mg => mg.GenreGu.Name)
+                    .ToList();
 
-
-                    .Where(x=>x.movieId== new Guid("d7a20ba8-ff6c-11eb-9a03-0242ac130003"))
-                    .Select(row => new Film { genres = row.Name});
-                //(System.Data.Objects.ObjectQuery)ee).ToTraceString();
-
-
-                Console.WriteLine(ee);
-
-                //string query  = "select * from"+
-                //"eld_movie.movie inner join eld_movie.movie_genre on eld_movie.movie.guid = eld_movie.movie_genre.movie_guid"+
-                //"join eld_movie.genre on eld_movie.genre.guid = eld_movie.movie_genre.genre_guid" +
-                //" where eld_movie.movie.guid = 'd7a20ba8-ff6c-11eb-9a03-0242ac130003' ";
-                //List<MovieGenre> movieGenre = db.MovieGenre.Where(mg => mg.MovieGuid == guid).ToList();
-                //List<Genre> genres = new List<Genre>(); 
-                //foreach (MovieGenre moviegnr in movieGenre)
-                //{
-                //    genres = db.Genre.Where(g => g.Guid == moviegnr.GenreGuid).ToList();
-                //}
-                ////   Genre g = db.Genre.Where(genre => movieGenre)
-
-            //   Console.WriteLine(movieGenre[0].ToString());
-                return ee.ToString();
+                List<Person> PersonNames = movie
+                     .MoviePerson.ToList()
+                     .Select(mp => mp.PersonGu)
+                     .ToList();
+                
+                List<string> PersonTitles = movie
+                    .MoviePerson.ToList()
+                    .Select(mp => mp.PersonTitleGu.Name)
+                    .ToList();
+            
+                return new Film { 
+                    Genres = genres, 
+                    MoviePersonNames = PersonNames.Select(mpn => mpn.Name).ToList(), 
+                    MoviePersonSurnames = PersonNames.Select(mpn => mpn.Surname).ToList(),
+                    MoviePersonBirthDates = PersonNames.Select(mpn => mpn.Birthdate).ToList(),
+                    PersonTitles = PersonTitles,
+                    Description = movie.Description,
+                    Name = movie.Name,
+                    Guid = movie.Guid,
+                    PosterURL = movie.PosterUrl,
+                    Rate = movie.Rate,
+                    ReleaseDate = movie.ReleaseDate,
+                    RunTime = movie.Runtime
+                };
             }
         }
 
@@ -96,3 +99,25 @@ namespace MovieAPI.DAL.Concrete
        
     }
 }
+/*
+ 
+               var ee = db.Movie
+                      .Join(db.MovieGenre, 
+                                 m => m.Guid, mg => mg.MovieGuid
+                                 ,(x, y) => new { movieName = x.Name, movidesc=x.Description,movieId=x.Guid, GenreId=y.GenreGuid })
+
+                        .Join(db.Genre
+                                ,g=>g.GenreId,g=>g.Guid
+                                ,(x,y)=>new {x.movidesc,y.Name,x.movieId ,x.movieName})
+
+
+                    .Where(x=>x.movieId== new Guid("d7a20ba8-ff6c-11eb-9a03-0242ac130003"))
+                    .Select(row => new Film { genres = row.Name});
+
+                  /string query  = "select * from"+
+                //"eld_movie.movie inner join eld_movie.movie_genre on eld_movie.movie.guid = eld_movie.movie_genre.movie_guid"+
+                //"join eld_movie.genre on eld_movie.genre.guid = eld_movie.movie_genre.genre_guid" +
+                //" where eld_movie.movie.guid = 'd7a20ba8-ff6c-11eb-9a03-0242ac130003' ";
+              
+  
+ */

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'app/Movie';
+import { MovieService } from 'app/movie.service';
+import { min } from 'rxjs/operators';
 
 declare interface TableData {
     headerRow: string[];
@@ -14,9 +17,18 @@ export class TablesComponent implements OnInit {
     public tableData1: TableData;
     public tableData2: TableData;
 
-  constructor() { }
+    private startIndex:number;
+    private endIndex:number;
+     guidArray?:string[];
+    guidnumber?:string;
+    movies:Movie[];
+    constructor(private movieService:MovieService) { 
+      this.startIndex = 0;
+      this.endIndex = 10;
+    }
 
-  ngOnInit() {
+    ngOnInit() {
+        
       this.tableData1 = {
           headerRow: [ 'Name', 'Release-Date', 'Rate'],
           dataRows: [
@@ -30,15 +42,35 @@ export class TablesComponent implements OnInit {
       };
       this.tableData2 = {
           headerRow: [ 'Name',  'Release-Date', 'Rate'],
-          dataRows: [
-              [ 'Dakota Rice','$36,738', 'Niger' ],
-              [ 'Minerva Hooper', '$23,789', 'Curaçao'],
-              [ 'Sage Rodriguez', '$56,142', 'Netherlands' ],
-              [ 'Philip Chaney', '$38,735', 'Korea, South' ],
-              [ 'Doris Greene', '$63,542', 'Malawi' ],
-              [ 'Mason Porter', '$78,615', 'Chile' ]
-          ]
+          dataRows: []
       };
-  }
+      this.guidArray=[];
+
+      this.getMoviesByIndexInterval();
+
+
+    }
+    specifyRouteInput(guid:number):void{
+        console.log("guid ney => " + guid + " guidin kendisi >= " + this.guidArray[guid]);
+        this.guidnumber = this.guidArray[guid];
+
+    }
+    getMoviesByIndexInterval(): void{
+        this.movieService.getMovieByInterval(this.startIndex, this.endIndex)
+        .subscribe(movies =>{
+                this.movies = movies;
+                this.movies.forEach(movie => {
+                    movie.fullYear = new Date(movie.releaseDate).getFullYear();
+                    this.tableData2.dataRows.push([movie.name, movie.fullYear.toString(),movie.rate.toString() ])
+                    let guid:string = movie.guid;
+                    this.guidArray.push(guid.toString());
+                    console.log("pushlanıyor => " + movie.guid + this.guidArray[0] + " " + guid);
+                    this.guidnumber = movie.guid;
+                    
+
+                });
+        });
+
+    }
 
 }
