@@ -65,13 +65,13 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                    <th *ngFor="let cell of CastTable.headerRow">{{ cell }}</th>
                                     <th></th>
                                     <th></th>
                                 </tr>  
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of tableData2.dataRows">
+                                <tr *ngFor="let row of CastTable.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
                                         <button class="bn33">
@@ -117,13 +117,13 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                                    <th *ngFor="let cell of WriterTable.headerRow">{{ cell }}</th>
                                     <th></th>
                                     <th></th>
                                 </tr>  
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of tableData2.dataRows">
+                                <tr *ngFor="let row of WriterTable.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
                                         <button class="bn33">
@@ -175,7 +175,7 @@
                                 </tr>  
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of tableData2.dataRows">
+                                <tr *ngFor="let row of DirectorTable.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
                                         <button class="bn33">

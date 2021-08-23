@@ -15,8 +15,8 @@ declare interface TableData {
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  public tableData1: TableData;
-  public tableData2: TableData;
+  public WriterTable: TableData;
+  public CastTable: TableData;
   public DirectorTable:TableData;
   items: SelectItem[];
   item: string;
@@ -36,14 +36,21 @@ export class InfoComponent implements OnInit {
   
   ngOnInit(): void {
     this.getMovie("1");
-    this.tableData2 = {
-      headerRow: [ 'ID', 'Name', 'Code', ],
+    this.CastTable = {
+      headerRow: [ 'ID', 'Name', 'Surname', ],
       dataRows: []
     };
     this.DirectorTable = {
 
-      headerRow:['ID', 'Name', 'Code', ],
+      headerRow:['ID', 'Name', 'Surname', ],
       dataRows:[]
+    };
+
+      
+    this.WriterTable = {
+      headerRow: ['ID', 'Name', 'Surname'],
+      dataRows: []
+
     };
   }
   getMovie(tempId:string){
@@ -63,10 +70,10 @@ export class InfoComponent implements OnInit {
           console.log("directore eklendi => ");
           this.DirectorTable.dataRows.push([index.toString(), PersonNames[index], PersonSurnames[index]]);
         }else if(this.movie.personTitles[index] === "writer"){
-          this.DirectorTable.dataRows.push([index.toString(), PersonNames[index], PersonSurnames[index]]);
+          this.WriterTable.dataRows.push([index.toString(), PersonNames[index], PersonSurnames[index]]);
 
         }else{
-          this.tableData2.dataRows.push([index.toString(), PersonNames[index], PersonSurnames[index]]);
+          this.CastTable.dataRows.push([index.toString(), PersonNames[index], PersonSurnames[index]]);
 
         }
         
