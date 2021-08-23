@@ -14,6 +14,6 @@ namespace MovieAPI.BusinessLogic.Abstract
         Film GetMovieByGuid(Guid guid);
 
         List<MovieGenre> GetMovieGenres(Guid id);
-
+        bool UpdatePerson(Guid personGuid, string personName, string personSurname);
     }
 }

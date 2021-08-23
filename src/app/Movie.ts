@@ -7,6 +7,7 @@ export interface Movie{
     description:string;
     posterURL:string;
     genres:string[];
+    personGuids:string[];
     personTitles:string[];
     moviePersonNames:string[];
     moviePersonSurnames:string[];

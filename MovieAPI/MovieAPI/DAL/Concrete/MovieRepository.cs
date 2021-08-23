@@ -77,7 +77,8 @@ namespace MovieAPI.DAL.Concrete
                     PosterURL = movie.PosterUrl,
                     Rate = movie.Rate,
                     ReleaseDate = movie.ReleaseDate,
-                    RunTime = movie.Runtime
+                    RunTime = movie.Runtime,
+                    PersonGuids = PersonNames.Select(mpn => mpn.Guid).ToList()
                 };
             }
         }
@@ -96,7 +97,30 @@ namespace MovieAPI.DAL.Concrete
             throw new NotImplementedException();
         }
 
-       
+        public bool UpdatePerson(Guid personId, string personName, string personSurname)
+        {
+            using (var db = new EldinterndbContext())
+            {
+                Console.WriteLine("person Id => " + personId + " değişecek name => " + personName + " değişecek surname => " + personSurname);
+                var person = db.Person.Where(person => person.Guid == personId).ToList();
+                if (person == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    Person p = person[0];
+                    p.Name = personName;
+                    p.Surname = personSurname;
+                    db.Entry(p).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return true;
+
+            }
+        }
+
+
     }
 }
 /*

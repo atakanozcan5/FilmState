@@ -19,8 +19,8 @@ namespace MovieAPI.Bean
        
 
        public List<string> Genres { get; set; }
-     
-       public List<string> PersonTitles { get; set; }
+        public List<Guid> PersonGuids { get; set; }
+        public List<string> PersonTitles { get; set; }
        public List<string> MoviePersonNames { get; set; }
        public List<string> MoviePersonSurnames { get; set; }
        public List<DateTime?> MoviePersonBirthDates { get; set; }

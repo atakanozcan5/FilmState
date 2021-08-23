@@ -5,6 +5,7 @@ using MovieAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 
 namespace MovieAPI.Controller
@@ -51,5 +52,20 @@ namespace MovieAPI.Controller
             return this.service.GetMovieGenres(id);
 
         }
+
+        [Route("updateperson")]
+        [HttpPut("{obj}")]
+        public bool UpdatePerson([FromBody] A obj)
+        {
+            return this.service.UpdatePerson(new Guid(obj.id.ToString()), obj.name.ToString(), obj.surname.ToString());
+        }
     }
+
+    public class A
+    {
+        public string id { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+    }
+
 }

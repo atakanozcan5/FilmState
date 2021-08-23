@@ -76,13 +76,13 @@
                                 </tr>  
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of CastTable.dataRows">
+                                <tr *ngFor="let row of CastTable.dataRows; let i = index"  >
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
                                         <button pButton pRipple type="button" label="" class="p-button-rounded">Delete</button>
                                     </td>
                                     <td>
-                                        <button pButton pRipple type="button" label="" class="p-button-rounded" (click)="updatepopup(true)">Update</button>
+                                        <button pButton pRipple type="button" label="" class="p-button-rounded" (click)="updatepopup(true, i)">Update</button>
                                     </td>
                                 </tr>  
                             </tbody>
@@ -162,21 +162,22 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText> 
-            <label for="float-input">Name</label>
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
+            <label for="float-input" id="nameArea">Name</label>
         </span>
     </div>
     <br>
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText> 
-            <label for="float-input">Surname</label>
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <label for="float-input" id="surnameArea" >Surname</label>
         </span>
     </div>
     <br>
     <br>
     <ng-template pTemplate="footer">
+        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson()"></button>
         <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
     </ng-template>
 </p-dialog>

@@ -44,6 +44,19 @@ export class MovieService {
      return movies;
    }
 
+   public updatePerson(GUID:string, Name:string, surName:string):Observable<boolean>{
+    var obj:object = {
+      id:GUID,
+      name:Name,
+      surname:surName
+    };
+    
+    let headers = new HttpHeaders();
+    headers.append('Content-type', 'application/json');
+      return this.http.put<boolean>(this.apiUrl + '/api/updateperson',obj, {headers:headers})
+      .pipe(catchError(this.handleError<boolean>('updatePerson', false)));
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

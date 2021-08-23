@@ -24,7 +24,13 @@ export class InfoComponent implements OnInit {
   movie:Movie;
 
   display:boolean;
- 
+  confirmed:boolean;
+
+  personGuids:string[];
+  selectedPersonGuid:string;
+
+  updatedName:string;
+  updatedSurname:string;
   constructor(private route:ActivatedRoute, private movieService: MovieService,private primengConfig: PrimeNGConfig) { 
     this.items = [];
     for (let i = 0; i < 10; i++) {
@@ -33,12 +39,19 @@ export class InfoComponent implements OnInit {
 
     this.movies = Movies;
     this.display = false;
+    this.confirmed = false;
+    this.personGuids = [];
     
   }
-  updatepopup(isOpened:boolean): void{
+  updatepopup(isOpened:boolean, index:number): void{
 
     this.display = isOpened;
-    console.log("dgffdhbdg");
+    console.log("dgffdhbdg => " + index);
+    this.selectedPersonGuid = this.personGuids[index];
+    if(!isOpened){
+      this.updatedName = "";
+      this.updatedSurname = "";
+    }
   }
   
   
@@ -61,6 +74,7 @@ export class InfoComponent implements OnInit {
       dataRows: []
 
     };
+   // this.updatePerson();
   }
   
   getMovie(tempId:string){
@@ -74,6 +88,7 @@ export class InfoComponent implements OnInit {
 
        let PersonNames:string[]= this.movie.moviePersonNames;
        let PersonSurnames: string[] = this.movie.moviePersonSurnames;
+       this.personGuids = this.movie.personGuids;
        for (let index = 0; index < PersonNames.length; index++) {
          console.log("person title => " + this.movie.personTitles[index]);
         if(this.movie.personTitles[index] === "director"){
@@ -92,6 +107,13 @@ export class InfoComponent implements OnInit {
       });
     //console.log("year => " + this.movie.releaseDate.getFullYear());
    }
+
+   updatePerson():void{
+    this.movieService.updatePerson(this.selectedPersonGuid, this.updatedName, this.updatedSurname).subscribe(b =>{
+     this.confirmed = b;
+     console.log("geliyor => " + b);
+    } );
+  }
   
 }
 

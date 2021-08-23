@@ -9,6 +9,7 @@ export const Movies:Movie[] = [
         name:"terminator",
         releaseDate:new Date(),
         runTime:144,
+        personGuids:[],
         posterURL:'link',
         moviePersonNames: ['oğuzhan','ahmet'],
         moviePersonBirthDates:[new Date(), new Date()],
