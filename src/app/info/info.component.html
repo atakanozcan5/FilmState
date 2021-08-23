@@ -59,8 +59,8 @@
                     </div>
                 </div>
 
-                <p-dropdown [options]="items" [(ngModel)]="item" placeholder="Select Item" [virtualScroll]="true" [itemSize]="31"
-                [filter]="false"></p-dropdown>                
+            <!-- <p-dropdown [options]="items" [(ngModel)]="item" placeholder="Select Item" [virtualScroll]="true" [itemSize]="31"
+            [filter]="false"></p-dropdown>-->
             <!-- =======================table cast======================= --> 
             <div class="col-md-12">
                 <div class="card card-plain">
@@ -79,34 +79,10 @@
                                 <tr *ngFor="let row of CastTable.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <button class="bn33">
-                                            
-                                                <div class="column">
-                                                    <div class="fa fa-trash">
-                                                
-                                                    </div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>
-                                                        Delete
-                                                    </div>
-                                                </div>
-                                        
-                                        </button>
+                                        <button pButton pRipple type="button" label="" class="p-button-rounded">Delete</button>
                                     </td>
                                     <td>
-                                        <button class="bn33">
-                                            <div class="column">
-                                                <div class="fa fa-pencil">
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="column">
-                                                <div>
-                                                    Update
-                                                </div>
-                                            </div>
-                                        </button>
+                                        <button pButton pRipple type="button" label="" class="p-button-rounded" (click)="updatepopup(true)">Update</button>
                                     </td>
                                 </tr>  
                             </tbody>
@@ -131,34 +107,10 @@
                                 <tr *ngFor="let row of WriterTable.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <button class="bn33">
-                                            
-                                                <div class="column">
-                                                    <div class="fa fa-trash">
-                                                
-                                                    </div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>
-                                                        Delete
-                                                    </div>
-                                                </div>
-                                        
-                                        </button>
+                                        <button pButton pRipple type="button" label="Primary" class="p-button-rounded">Delete</button>
                                     </td>
                                     <td>
-                                        <button class="bn33">
-                                            <div class="column">
-                                                <div class="fa fa-pencil">
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="column">
-                                                <div>
-                                                    Update
-                                                </div>
-                                            </div>
-                                        </button>
+                                        <button pButton pRipple type="button" label="Primary" class="p-button-rounded" (click)="updatepopup(true)">Update</button>
                                     </td>
                                 </tr>  
                             </tbody>
@@ -183,34 +135,10 @@
                                 <tr *ngFor="let row of DirectorTable.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <button class="bn33">
-                                            
-                                                <div class="column">
-                                                    <div class="fa fa-trash">
-                                                
-                                                    </div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>
-                                                        Delete
-                                                    </div>
-                                                </div>
-                                        
-                                        </button>
+                                        <button pButton pRipple type="button" label="Primary" class="p-button-rounded">Delete</button>
                                     </td>
                                     <td>
-                                        <button class="bn33">
-                                            <div class="column">
-                                                <div class="fa fa-pencil">
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="column">
-                                                <div>
-                                                    Update
-                                                </div>
-                                            </div>
-                                        </button>
+                                        <button pButton pRipple type="button" label="Primary" class="p-button-rounded" (click)="updatepopup()">Update</button>
                                     </td>
                                 </tr>  
                             </tbody>
@@ -228,13 +156,28 @@
 
 <p-dialog [(visible)]="display" [style]="{width: '50vw'}" >
     <ng-template pTemplate="header" style="font-size: xx-large" > 
-       <p style="font-size: xx-large;"> deneme 213</p>
+       <p style="font-size: xx-large;"> Cast Table Update</p>
     </ng-template>
-    Content
-
-
+    <br>
+    <br>
+    <div class="sizes">
+        <span class="p-float-label">
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText> 
+            <label for="float-input">Name</label>
+        </span>
+    </div>
+    <br>
+    <br>
+    <div class="sizes">
+        <span class="p-float-label">
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText> 
+            <label for="float-input">Surname</label>
+        </span>
+    </div>
+    <br>
+    <br>
     <ng-template pTemplate="footer">
-        //buttons
+        <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
     </ng-template>
 </p-dialog>
 

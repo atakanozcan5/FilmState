@@ -191,6 +191,10 @@ button:hover {
 	animation:  rotation 10s infinite linear;
 	}
 
+.p-inputtext-lg{
+	font-size: 25px;
+}	
+
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);

@@ -32,9 +32,16 @@ export class InfoComponent implements OnInit {
     }
 
     this.movies = Movies;
-    this.display = true;
+    this.display = false;
     
   }
+  updatepopup(isOpened:boolean): void{
+
+    this.display = isOpened;
+    console.log("dgffdhbdg");
+  }
+  
+  
   
   ngOnInit(): void {
     this.getMovie("1");
@@ -55,6 +62,7 @@ export class InfoComponent implements OnInit {
 
     };
   }
+  
   getMovie(tempId:string){
   const id = this.route.snapshot.paramMap.get('id');
    // this.movie = this.movies.find(movie => tempId ===movie.guid);
@@ -84,5 +92,6 @@ export class InfoComponent implements OnInit {
       });
     //console.log("year => " + this.movie.releaseDate.getFullYear());
    }
-
+  
 }
+
