@@ -16,8 +16,10 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
-
-  constructor( public location: Location, private router: Router) {}
+  display:boolean;
+  constructor( public location: Location, private router: Router) {
+      this.display = true;
+  }
 
   ngOnInit() {
     console.log(this.router)

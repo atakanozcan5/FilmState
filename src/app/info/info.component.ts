@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Movies } from 'app/mocks/mock-movies';
 import { Movie } from 'app/Movie';
 import { MovieService } from 'app/movie.service';
-import { SelectItem } from 'primeng/api';
+import { PrimeNGConfig, SelectItem } from 'primeng/api';
 
 declare interface TableData {
   headerRow?: string[];
@@ -22,15 +22,17 @@ export class InfoComponent implements OnInit {
   item: string;
   movies:Movie[];
   movie:Movie;
+
+  display:boolean;
  
-  constructor(private route:ActivatedRoute, private movieService: MovieService) { 
+  constructor(private route:ActivatedRoute, private movieService: MovieService,private primengConfig: PrimeNGConfig) { 
     this.items = [];
     for (let i = 0; i < 10; i++) {
       this.items.push({label: 'Item ' + i, value: 'Item ' + i});
     }
 
     this.movies = Movies;
-
+    this.display = true;
     
   }
   

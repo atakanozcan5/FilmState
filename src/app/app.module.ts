@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MoiveDetailsComponent } from './moive-details/moive-details.component';
 import { DropdownModule } from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
 
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
@@ -28,7 +29,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
     FooterModule,
     SidebarModule,
     AppRoutingModule,
-    DropdownModule
+    DropdownModule,
+    DialogModule
   ],
   declarations: [
     AppComponent,

@@ -14,10 +14,10 @@ export class MoiveDetailsComponent implements OnInit {
   item: string;
 
   movies:Movie[];
-
+  display:boolean;
   movie:Movie;
   constructor(private route:ActivatedRoute) {
-
+    this.display =true;
     this.items = [];
     for (let i = 0; i < 10; i++) {
         this.items.push({label: 'Item ' + i, value: 'Item ' + i});

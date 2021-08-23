@@ -1,7 +1,9 @@
-<body>
     <head>
         <link rel="stylesheet" href="info.component.css">
     </head>
+
+
+   
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -56,6 +58,9 @@
                         
                     </div>
                 </div>
+
+                <p-dropdown [options]="items" [(ngModel)]="item" placeholder="Select Item" [virtualScroll]="true" [itemSize]="31"
+                [filter]="false"></p-dropdown>                
             <!-- =======================table cast======================= --> 
             <div class="col-md-12">
                 <div class="card card-plain">
@@ -219,5 +224,17 @@
 
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
-<p> {{movieString}} </p>
-</body>
+
+
+<p-dialog [(visible)]="display" [style]="{width: '50vw'}" >
+    <ng-template pTemplate="header" style="font-size: xx-large" > 
+       <p style="font-size: xx-large;"> deneme 213</p>
+    </ng-template>
+    Content
+
+
+    <ng-template pTemplate="footer">
+        //buttons
+    </ng-template>
+</p-dialog>
+
