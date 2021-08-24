@@ -1,11 +1,19 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="./node_modules/primeicons/primeicons.css"/>
+
+</head>
+<body>
 <div class="main-content">
     <div class="container-fluid">
+        <div>
+            merhaba
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="header">
-                        <h4 class="title">Table on Plain Background</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">FILMS TABLE</h4>
+                        <p class="category">Films List</p>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover">
@@ -28,38 +36,14 @@
                                                     <a ></a>
                                                 </div>
                                             </div>                                    
-                                    </button>
+                                        </button>
                                     </td>
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <button class="bn33">
-                                            
-                                                <div class="column">
-                                                    <div class="fa fa-trash">
-                                                
-                                                    </div>
-                                                </div>
-                                                <div class="column">
-                                                    <div>
-                                                        Delete
-                                                    </div>
-                                                </div>
-                                        
-                                        </button>
+                                        <button pButton pRipple type="button" label="" class="p-button-rounded">Delete</button>
                                     </td>
                                     <td>
-                                        <button class="bn33">
-                                            <div class="column">
-                                                <div class="fa fa-pencil">
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="column">
-                                                <div>
-                                                    Update
-                                                </div>
-                                            </div>
-                                        </button>
+                                        <button pButton pRipple type="button" label="" class="p-button-rounded" (click)="updatepopup(true, i)">Update</button>
                                     </td>
                                 </tr>
                                 
@@ -70,5 +54,43 @@
             </div>
             
         </div>
+        <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
     </div>
 </div>
+
+<p-dialog [(visible)]="display" [style]="{width: '50vw'}" >
+    <ng-template pTemplate="header" style="font-size: xx-large" > 
+       <p style="font-size: xx-large;"> Film Table Update</p>
+    </ng-template>
+    <br>
+    <br>
+    <div class="sizes">
+        <span class="p-float-label">
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
+            <label for="float-input" id="nameArea">Name</label>
+        </span>
+    </div>
+    <br>
+    <br>
+    <div class="sizes">
+        <span class="p-float-label">
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <label for="float-input" id="surnameArea" >Release-Date</label>
+        </span>
+    </div>
+    <br>
+    <br>
+    <div class="sizes">
+        <span class="p-float-label">
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <label for="float-input" id="surnameArea" >Rate</label>
+        </span>
+    </div>
+    <br>
+    <br>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson()"></button>
+        <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
+    </ng-template>
+</p-dialog>
+</body>

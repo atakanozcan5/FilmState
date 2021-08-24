@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from 'app/Movie';
 import { MovieService } from 'app/movie.service';
 import { min } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { Movies } from 'app/mocks/mock-movies';
+import { PrimeNGConfig, SelectItem } from 'primeng/api';
 
 declare interface TableData {
     headerRow: string[];
@@ -22,23 +25,35 @@ export class TablesComponent implements OnInit {
      guidArray?:string[];
     guidnumber?:string;
     movies:Movie[];
+    display:boolean;
+    selectedPersonGuid:string;
+    updatedName:string;
+    updatedDate:string;
+    filmGuids:string[];
+    rate:string;
     constructor(private movieService:MovieService) { 
       this.startIndex = 0;
       this.endIndex = 10;
+      this.display = false;
+      this.filmGuids = [];
+    }
+
+    updatepopup(isOpened:boolean, index:number): void{
+
+        this.display = isOpened;
+        this.selectedPersonGuid = this.filmGuids[index];
+        if(!isOpened){
+          this.updatedName = "";
+          this.updatedDate = "";
+          this.rate;
+        }
     }
 
     ngOnInit() {
         
       this.tableData1 = {
           headerRow: [ 'Name', 'Release-Date', 'Rate'],
-          dataRows: [
-              [ 'Dakota Rice', 'Niger', 'Oud-Turnhout'],
-              [ 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas'],
-              [ 'Sage Rodriguez', 'Netherlands', 'Baileux'],
-              [ 'Philip Chaney', 'Korea, South', 'Overland Park'],
-              [ 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten'],
-              [ 'Mason Porter', 'Chile', 'Gloucester']
-          ]
+          dataRows: []
       };
       this.tableData2 = {
           headerRow: [ 'Name',  'Release-Date', 'Rate'],

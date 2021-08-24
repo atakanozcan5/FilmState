@@ -46,7 +46,6 @@ export class InfoComponent implements OnInit {
   updatepopup(isOpened:boolean, index:number): void{
 
     this.display = isOpened;
-    console.log("dgffdhbdg => " + index);
     this.selectedPersonGuid = this.personGuids[index];
     if(!isOpened){
       this.updatedName = "";
