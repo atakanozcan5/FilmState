@@ -17,6 +17,11 @@ namespace MovieAPI.BusinessLogic.Concrete
         {
             movieRepository = new MovieRepository();
         }
+
+        public bool AddNewGenreType(string genreName, string Code)
+        {
+            return this.movieRepository.AddNewGenreType(genreName, Code);
+        }
         public List<Movie> GetAllMovies(int a, int b)
         {
             return movieRepository.GetAllMovies(a,b);

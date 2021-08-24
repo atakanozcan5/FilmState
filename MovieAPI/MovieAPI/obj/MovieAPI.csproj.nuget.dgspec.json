@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atakan.ozcan\\Documents\\GitHub\\FilmState\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {}
+    "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atakan.ozcan\\Documents\\GitHub\\FilmState\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {
+    "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atakan.ozcan\\Documents\\GitHub\\FilmState\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
+        "projectUniqueName": "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
         "projectName": "MovieAPI",
-        "projectPath": "C:\\Users\\atakan.ozcan\\Documents\\GitHub\\FilmState\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
-        "packagesPath": "C:\\Users\\atakan.ozcan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\atakan.ozcan\\Documents\\GitHub\\FilmState\\MovieAPI\\MovieAPI\\obj\\",
+        "projectPath": "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\MovieAPI.csproj",
+        "packagesPath": "C:\\Users\\oguzhan.akdogan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oguzhan.akdogan\\Documents\\GitHub\\FilmState2\\MovieAPI\\MovieAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\atakan.ozcan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oguzhan.akdogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

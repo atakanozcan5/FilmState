@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'app/movie.service';
 
 declare interface TableData {
   headerRow: string[];
@@ -18,7 +19,7 @@ export class GenreComponent implements OnInit {
   genreGuids:string[];
   updatedName:string;
   updatedCode:string;
-  constructor() { }
+  constructor(private movieService:MovieService) { }
 
   updatepopup(isOpened:boolean, index:number): void{
 
@@ -53,6 +54,19 @@ export class GenreComponent implements OnInit {
               ['6', 'Mason Porter', '$78,615',  ]
           ]
       };
+  }
+
+  addNewGenre(genreName:HTMLInputElement, code:HTMLInputElement):void{
+      this.movieService.addNewGenre(genreName.value, code.value).subscribe(
+        bool => {
+          if(bool){
+            console.log("değişim onaylandı");
+          }else{
+            console.log("bir sorun var!");
+          }
+        }
+      )
+
   }
 
 }

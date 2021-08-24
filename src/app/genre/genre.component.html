@@ -12,18 +12,18 @@
                     <form class="card-form" style="color: #333333;">
                         Genre Name
                         <div class="input">
-                            <input type="text" class="input-field" required/>
+                            <input #genreName type="text" class="input-field" required/>
                             <label class="input-label"></label>
                         </div>
                         <br>
                         Code
                          <div class="input">
-                            <input type="text" class="input-field" required/>
+                            <input #code type="text" class="input-field" required/>
                             <label class="input-label"></label>
                         </div>
                         <br>
                         <div class="action">
-                            <button class="action-button">Add</button>
+                            <button class="action-button" (click) = "addNewGenre(genreName, code)">Add</button>
                         </div>
                     </form>
                 </div>

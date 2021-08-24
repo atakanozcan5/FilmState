@@ -59,6 +59,16 @@ namespace MovieAPI.Controller
         {
             return this.service.UpdatePerson(new Guid(obj.id.ToString()), obj.name.ToString(), obj.surname.ToString());
         }
+
+
+       
+        [Route("newgenre")]
+        [HttpPut]
+        public bool AddNewGenreType([FromBody]JObject genre)
+        {
+
+            return this.service.AddNewGenreType(genre.GetValue("genrename").ToString(), genre.GetValue("code").ToString());
+        }
     }
 
     public class A

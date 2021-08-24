@@ -120,6 +120,34 @@ namespace MovieAPI.DAL.Concrete
             }
         }
 
+        public bool AddNewGenreType(string genreName, string Code)
+        {
+            using (var db = new EldinterndbContext())
+            {
+                List<Genre> genres = db.Genre.ToList();
+                if (genres.FirstOrDefault(
+                    g =>
+                    {
+                        return g.Name.Equals(genreName) || g.Code.Equals(Code);
+                    }) == null)
+                {
+                    Genre genre = new Genre();
+                    genre.Guid = Guid.NewGuid();
+                    genre.Name = genreName;
+                    genre.Code = Code;
+                    db.Genre.Add(genre);
+                    db.SaveChanges();
+                    return true;
+                }
+
+
+            }
+
+            return false;
+
+
+        }
+
 
     }
 }

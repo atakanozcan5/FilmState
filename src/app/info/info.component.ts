@@ -98,7 +98,6 @@ export class InfoComponent implements OnInit {
        for (let index = 0; index < PersonNames.length; index++) {
          console.log("person title => " + this.movie.personTitles[index]);
         if(this.movie.personTitles[index] === "director"){
-          console.log("directore eklendi => ");
           this.DirectorTable.dataRows.push([index.toString(), PersonNames[index], PersonSurnames[index]]);
         }else if(this.movie.personTitles[index] === "writer"){
           this.WriterTable.dataRows.push([index.toString(), PersonNames[index], PersonSurnames[index]]);
