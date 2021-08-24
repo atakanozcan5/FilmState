@@ -78,11 +78,7 @@ export class InfoComponent implements OnInit {
     };
    // this.updatePerson();
    this.msgs = [
-    {severity:'success', summary:'Success', detail:'Message Content'},
-    {severity:'info', summary:'Info', detail:'Message Content'},
-    {severity:'warn', summary:'Warning', detail:'Message Content'},
-    {severity:'error', summary:'Error', detail:'Message Content'},
-    {severity:'custom', summary:'Custom', detail:'Message Content', icon: 'pi-file'}
+   
   ];
 
   }
@@ -119,10 +115,24 @@ export class InfoComponent implements OnInit {
    }
 
    updatePerson(name:HTMLInputElement, surname: HTMLInputElement):void{
+
+    if(name.value == "" && surname.value == ""){
+      this.msgs =  [ {severity:'error', summary:'Error', detail:'Please fill the blanks!'}];
+      return;
+    }
     this.movieService.updatePerson(this.selectedPersonGuid, name.value, surname.value).subscribe(b =>{
      this.confirmed = b;
-     console.log("geliyor => " + b);
-    } );
+     if(b){
+       this.msgs = [
+        {severity:'success', summary:'Success', detail:'Changes saved succesfully!'}
+       ];
+     }else{
+      this.msgs =  [ {severity:'error', summary:'Error', detail:'There is a unexpected error occured!'}];
+     }
+     name.value = "";
+     surname.value = "";
+     
+    });
   }
   
 }

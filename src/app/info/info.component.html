@@ -4,7 +4,7 @@
 
 
    
-<div class="main-content">
+<div class="main-content" *ngIf="movie">
     <div class="container-fluid">
         <div class="row">
             <!-- =======================MOVIE CARD======================= -->
@@ -176,10 +176,11 @@
     </div>
     <br>
     <br>
+    <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
+
     <ng-template pTemplate="footer">
         <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson(personName, personSurname)"></button>
         <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
     </ng-template>
 </p-dialog>
-<p-messages [(value)]="msgs" [enableService]="false"></p-messages>
 

@@ -87,7 +87,7 @@ namespace MovieAPI.DAL.Concrete
         {
             using (var db = new EldinterndbContext())
             {
-
+               
                 return db.MovieGenre.Where(mg => mg.MovieGuid == guid).ToList();
             }
             }
