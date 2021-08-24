@@ -20,6 +20,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import {PaginatorModule} from 'primeng/paginator';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import {ButtonModule} from 'primeng/button';
     DialogModule,
     InputTextModule,
     ButtonModule,
+    PaginatorModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [
