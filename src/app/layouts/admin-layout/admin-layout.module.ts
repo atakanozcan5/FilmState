@@ -23,6 +23,8 @@ import {ButtonModule} from 'primeng/button';
 import {PaginatorModule} from 'primeng/paginator';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import {MessageModule} from 'primeng/message';
     MessagesModule,
     MessageModule,
     PaginatorModule,
+    AutoCompleteModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [

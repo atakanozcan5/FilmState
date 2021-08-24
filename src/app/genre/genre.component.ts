@@ -13,8 +13,22 @@ declare interface TableData {
 export class GenreComponent implements OnInit {
   public tableData1: TableData;
   public tableData2: TableData;
-
+  display:boolean;
+  selectedPersonGuid:string;
+  genreGuids:string[];
+  updatedName:string;
+  updatedCode:string;
   constructor() { }
+
+  updatepopup(isOpened:boolean, index:number): void{
+
+    this.display = isOpened;
+    this.selectedPersonGuid = this.genreGuids[index];
+    if(!isOpened){
+      this.updatedName = "";
+      this.updatedCode = "";
+    }
+}
 
   ngOnInit() {
       this.tableData1 = {
