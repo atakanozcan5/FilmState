@@ -162,7 +162,7 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
+            <input #personName class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
             <label for="float-input" id="nameArea">Name</label>
         </span>
     </div>
@@ -170,15 +170,16 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <input  #personSurname class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
             <label for="float-input" id="surnameArea" >Surname</label>
         </span>
     </div>
     <br>
     <br>
     <ng-template pTemplate="footer">
-        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson()"></button>
+        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson(personName, personSurname)"></button>
         <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
     </ng-template>
 </p-dialog>
+<p-messages [(value)]="msgs" [enableService]="false"></p-messages>
 

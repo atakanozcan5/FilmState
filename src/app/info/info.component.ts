@@ -4,7 +4,8 @@ import { Movies } from 'app/mocks/mock-movies';
 import { Movie } from 'app/Movie';
 import { MovieService } from 'app/movie.service';
 import { PrimeNGConfig, SelectItem } from 'primeng/api';
-
+import {Message} from 'primeng//api';
+import {MessageService} from 'primeng/api';
 declare interface TableData {
   headerRow?: string[];
   dataRows?: string[][];
@@ -29,9 +30,11 @@ export class InfoComponent implements OnInit {
   personGuids:string[];
   selectedPersonGuid:string;
 
+  msgs: Message[];
+
   updatedName:string;
   updatedSurname:string;
-  constructor(private route:ActivatedRoute, private movieService: MovieService,private primengConfig: PrimeNGConfig) { 
+  constructor(private route:ActivatedRoute, private movieService: MovieService,private primengConfig: PrimeNGConfig,private messageService: MessageService) { 
     this.items = [];
     for (let i = 0; i < 10; i++) {
       this.items.push({label: 'Item ' + i, value: 'Item ' + i});
@@ -74,6 +77,14 @@ export class InfoComponent implements OnInit {
 
     };
    // this.updatePerson();
+   this.msgs = [
+    {severity:'success', summary:'Success', detail:'Message Content'},
+    {severity:'info', summary:'Info', detail:'Message Content'},
+    {severity:'warn', summary:'Warning', detail:'Message Content'},
+    {severity:'error', summary:'Error', detail:'Message Content'},
+    {severity:'custom', summary:'Custom', detail:'Message Content', icon: 'pi-file'}
+  ];
+
   }
   
   getMovie(tempId:string){
@@ -107,8 +118,8 @@ export class InfoComponent implements OnInit {
     //console.log("year => " + this.movie.releaseDate.getFullYear());
    }
 
-   updatePerson():void{
-    this.movieService.updatePerson(this.selectedPersonGuid, this.updatedName, this.updatedSurname).subscribe(b =>{
+   updatePerson(name:HTMLInputElement, surname: HTMLInputElement):void{
+    this.movieService.updatePerson(this.selectedPersonGuid, name.value, surname.value).subscribe(b =>{
      this.confirmed = b;
      console.log("geliyor => " + b);
     } );

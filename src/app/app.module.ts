@@ -17,6 +17,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
     AdminLayoutComponent,
     MoiveDetailsComponent
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

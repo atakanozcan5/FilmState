@@ -21,7 +21,8 @@ import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {PaginatorModule} from 'primeng/paginator';
-
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,6 +33,8 @@ import {PaginatorModule} from 'primeng/paginator';
     DialogModule,
     InputTextModule,
     ButtonModule,
+    MessagesModule,
+    MessageModule,
     PaginatorModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
