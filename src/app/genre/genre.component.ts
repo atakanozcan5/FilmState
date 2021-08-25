@@ -16,6 +16,8 @@ export class GenreComponent implements OnInit {
   public tableData2: TableData;
   display:boolean;
   selectedPersonGuid:string;
+  guidArray?:string[];
+  guidnumber?:string;
   genreGuids:string[];
   updatedName:string;
   updatedCode:string;
@@ -68,5 +70,10 @@ export class GenreComponent implements OnInit {
       )
 
   }
+  specifyRouteInput(guid:number):void{
+    console.log("guid ney => " + guid + " guidin kendisi >= " + this.guidArray[guid]);
+    this.guidnumber = this.guidArray[guid];
+
+}
 
 }
