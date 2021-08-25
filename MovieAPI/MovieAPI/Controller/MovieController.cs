@@ -5,7 +5,7 @@ using MovieAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 
 namespace MovieAPI.Controller
@@ -63,11 +63,12 @@ namespace MovieAPI.Controller
 
        
         [Route("newgenre")]
-        [HttpPut]
-        public bool AddNewGenreType([FromBody]JObject genre)
+        [HttpPut("{genre}")]
+        public bool AddNewGenreType([FromBody] Genre genre)
         {
 
-            return this.service.AddNewGenreType(genre.GetValue("genrename").ToString(), genre.GetValue("code").ToString());
+            
+            return this.service.AddNewGenreType(genre.Name, genre.Code);
         }
     }
 

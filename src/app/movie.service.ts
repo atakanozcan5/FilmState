@@ -60,10 +60,10 @@ export class MovieService {
 
   public addNewGenre(genreName:string, Code:string):Observable<boolean>{
     var obj ={
-        genrename:genreName,
-        code:Code
+        Name:genreName,
+        Code:Code
     }
-    return this.http.put<boolean>(this.apiUrl + '/api/newgenre',JSON.stringify(obj))
+    return this.http.put<boolean>(this.apiUrl + '/api/newgenre',obj)
     .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
 
   }
