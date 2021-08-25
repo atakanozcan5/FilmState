@@ -6,7 +6,7 @@ import { TablesComponent } from '../../tables/tables.component';
 import { GenreComponent } from '../../genre/genre.component';
 import { InfoComponent } from '../../info/info.component';
 import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
+import { AddComponent } from '../../add/add.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -16,6 +16,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'genre',     component: GenreComponent },
     { path: 'info/:id',          component: InfoComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    { path: 'add',  component: AddComponent },
     { path: 'upgrade',        component: UpgradeComponent },
 ];

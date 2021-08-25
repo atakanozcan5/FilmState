@@ -18,6 +18,7 @@ import {DialogModule} from 'primeng/dialog';
 
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+import {ListboxModule} from 'primeng/listbox';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MessageService } from 'primeng/api';
     SidebarModule,
     AppRoutingModule,
     DropdownModule,
+    ListboxModule,
     DialogModule
   ],
   declarations: [
