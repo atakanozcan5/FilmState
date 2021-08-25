@@ -3,7 +3,7 @@ import { ROUTES } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 @Component({
-    // moduleId: module.id,
+    moduleId: module.id,
     selector: 'navbar-cmp',
     templateUrl: 'navbar.component.html'
 })
@@ -41,8 +41,8 @@ export class NavbarComponent implements OnInit{
         body.classList.remove('nav-open');
     };
     sidebarToggle() {
-        // const toggleButton = this.toggleButton;
-        // const body = document.getElementsByTagName('body')[0];
+        const toggleButton = this.toggleButton;
+        const body = document.getElementsByTagName('body')[0];
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {
@@ -61,6 +61,6 @@ export class NavbarComponent implements OnInit{
               return this.listTitles[item].title;
           }
       }
-      return 'Dashboard';
+      return 'FilmState';
     }
 }

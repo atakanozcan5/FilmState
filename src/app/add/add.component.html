@@ -1,0 +1,202 @@
+<body>
+    <head>
+        <link rel="stylesheet" href="add.component.css">
+    </head>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- ----------------------------------------------------------------------------------------------------- -->
+    <div class="col-md-4">
+        <div class="main_card2">
+            <div class="cardadd2">
+                <div class="card-image">
+                </div>
+                <form class="card-form" style="color: #333333;">
+                    <br>
+                    Film Name
+                    <div class="input">
+                        <input type="text" class="input-field" required/>
+                        <label class="input-label"></label>
+                    </div>
+                    <br>
+                    Run Time
+                    <div class="input">
+                        <input type="text" class="input-field" required/>
+                        <label class="input-label"></label>
+                    </div>
+                    <br>
+                    Rate
+                    <div class="input">
+                        <input type="text" class="input-field" required/>
+                        <label class="input-label"></label>
+                    </div>
+                    <br>
+                    Release Date
+                    <div class="input">
+                        <input type="text" class="input-field" required/>
+                        <label class="input-label"></label>
+                    </div>
+                    <br>
+                    Poster Url
+                    <div class="input">
+                        <input type="text" class="input-field" required/>
+                        <label class="input-label"></label>
+                    </div>
+                    <br>
+                    Release-Date
+                     <div class="input">
+                        <input type="text" class="input-field" required/>
+                        <label class="input-label"></label>
+                    </div>
+                    <br>
+                    Description
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <textarea inputId="textarea" rows="5" style="resize: none;" cols="52" [(ngModel)]="value10" pInputTextarea></textarea>
+                            <label for="textarea"></label>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="action">
+                        <button class="action-button">Add Film</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------------------------------------------------------------------------------------- -->
+
+            <!-- ----------------------------------------------------------------------------------------------------- -->
+        
+            <div class="main_card">
+                <div class="cardadd">
+                    <form class="card-form" style="color: #333333;">
+                        Genre Name
+                        <div class="input">
+                            <input #genreName type="text" class="input-field" required/>
+                            <label class="input-label"></label>
+                        </div>
+                        <br>
+                        Code
+                         <div class="input">
+                            <input #code type="text" class="input-field" required/>
+                            <label class="input-label"></label>
+                        </div>
+                        <br>
+                        <!-- list box -->
+                        <div class="p-fluid p-grid">
+                            <div class="p-field p-col-12 p-md-4">
+                             <span class="p-float-label">
+                               <p-multiSelect
+                                 inputId="multiselect"
+                                 [options]="cities"
+                                 [(ngModel)]="value9"
+                                 optionLabel="name"
+                                 [filter]="false"
+                               ></p-multiSelect>
+                               <label for="multiselect">MultiSelect</label>
+                             </span>
+                           </div>
+                         </div>
+                        
+                        <!-- list box -->
+                        <div class="action">
+                            <button class="action-button" (click) = "addNewGenre(genreName, code)">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+            <!-- ----------------------------------------------------------------------------------------------------- -->
+        
+            <div class="main_card">
+                <div class="cardadd">
+                    <form class="card-form" style="color: #333333;">
+                        Actor Name
+                        <div class="input">
+                            <input type="text" class="input-field" required/>
+                            <label class="input-label"></label>
+                        </div>
+                        <br>
+                        Actor Surname
+                         <div class="input">
+                            <input type="text" class="input-field" required/>
+                            <label class="input-label"></label>
+                        </div>
+                        <br>
+                        Film
+                        <div class="input">
+                            <input type="password" class="input-field" required/>
+                            <label class="input-label"></label>
+                        </div>
+                        <br>
+                       <!-- list box -->
+                       <div class="p-fluid p-grid">
+                       <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                          <p-multiSelect
+                            inputId="multiselect"
+                            [options]="cities"
+                            [(ngModel)]="value9"
+                            optionLabel="name"
+                            [filter]="false"
+                          ></p-multiSelect>
+                          <label for="multiselect">MultiSelect</label>
+                        </span>
+                      </div>
+                    </div>
+                        <!-- list box -->
+                        <div class="action">
+                            <button class="action-button">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+        <!-- ----------------------------------------------------------------------------------------------------- -->
+        
+        <!-- <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-listbox> -->
+        
+        </div>
+    </div>
+</div>
+<p-dialog [(visible)]="display" [style]="{width: '50vw'}" >
+    <ng-template pTemplate="header" style="font-size: xx-large" > 
+       <p style="font-size: xx-large;"> Genre Table Update</p>
+    </ng-template>
+    <br>
+    <br>
+    <div class="sizes">
+        <span class="p-float-label">
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
+            <label for="float-input" id="nameArea">Name</label>
+        </span>
+    </div>
+    <br>
+    <br>
+    <div class="sizes">
+        <span class="p-float-label">
+            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <label for="float-input" id="surnameArea" >Code</label>
+        </span>
+    </div>
+    <br>
+    <br>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson()"></button>
+        <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
+    </ng-template>
+</p-dialog>
+
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+<!-- For Background image -->
+<style>
+    .card-image{
+        background-image: url('https://www.europasc.sk/userfiles/blog/titulka.video.jpg');
+    }
+</style>
+
+
+</body>

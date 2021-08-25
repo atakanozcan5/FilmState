@@ -14,7 +14,7 @@ import { TablesComponent } from '../../tables/tables.component';
 import { GenreComponent } from '../../genre/genre.component';
 import { InfoComponent } from '../../info/info.component';
 import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
+import { AddComponent } from '../../add/add.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { DropdownModule } from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
@@ -24,6 +24,9 @@ import {PaginatorModule} from 'primeng/paginator';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {ListboxModule} from 'primeng/listbox';
+import { AddnewmovieService } from 'app/addnewmovie.service';
+import { MultiSelectModule } from "primeng/multiselect";
 
 @NgModule({
   imports: [
@@ -37,8 +40,10 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     ButtonModule,
     MessagesModule,
     MessageModule,
+    MultiSelectModule,
     PaginatorModule,
     AutoCompleteModule,
+    ListboxModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [
@@ -48,8 +53,9 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     GenreComponent,
     InfoComponent,
     MapsComponent,
-    NotificationsComponent,
+    AddComponent,
     UpgradeComponent,
+    AddnewmovieService
     
   ]
 })
