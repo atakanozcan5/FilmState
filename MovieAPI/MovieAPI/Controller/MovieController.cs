@@ -70,6 +70,20 @@ namespace MovieAPI.Controller
             
             return this.service.AddNewGenreType(genre.Name, genre.Code);
         }
+
+        [Route("getgenres")]
+        [HttpGet]
+        public List<Genre> GetGenres()
+        {
+            return this.service.GetAllGenres();
+        }
+        [Route("deletegenre")]
+        [HttpPut("{guid}")]
+        public bool DeleteGenre(string guid)
+        {
+
+            return this.service.DeleteGenre(new Guid(guid));
+        }
     }
 
     public class A

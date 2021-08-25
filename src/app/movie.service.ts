@@ -1,8 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, JsonpClientBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Movies } from './mocks/mock-movies';
-import { Movie } from './Movie';
+import { Genre, Movie } from './Movie';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
@@ -66,6 +66,20 @@ export class MovieService {
     return this.http.put<boolean>(this.apiUrl + '/api/newgenre',obj)
     .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
 
+  }
+
+  public getGenres():Observable<Genre[]>{
+    return this.http.get<Genre[]>(this.apiUrl + '/api/getgenres')
+    .pipe(catchError(this.handleError<Genre[]>('getGenres', [])));
+
+  }
+
+  public removeGenreByGuid(guid:string):Observable<boolean | ArrayBuffer>{
+    var headers = new Headers();
+    headers.append('Content-Type' , 'application/json');
+    let httpParams = new HttpParams().set("guid", guid);
+    return this.http.delete<boolean>(this.apiUrl + '/api/deletegenre',{params:httpParams})
+    .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
   }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

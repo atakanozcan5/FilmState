@@ -22,6 +22,17 @@ namespace MovieAPI.BusinessLogic.Concrete
         {
             return this.movieRepository.AddNewGenreType(genreName, Code);
         }
+
+        public bool DeleteGenre(Guid guid)
+        {
+            return this.movieRepository.DeleteGenre(guid);
+        }
+
+        public List<Genre> GetAllGenres()
+        {
+            return this.movieRepository.GetAllGenres();
+        }
+
         public List<Movie> GetAllMovies(int a, int b)
         {
             return movieRepository.GetAllMovies(a,b);

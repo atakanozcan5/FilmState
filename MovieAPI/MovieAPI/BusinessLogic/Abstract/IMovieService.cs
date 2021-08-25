@@ -16,5 +16,7 @@ namespace MovieAPI.BusinessLogic.Abstract
         List<MovieGenre> GetMovieGenres(Guid id);
         bool UpdatePerson(Guid personGuid, string personName, string personSurname);
         bool AddNewGenreType(string genreName, string Code);
+        bool DeleteGenre(Guid guid);
+        List<Genre> GetAllGenres();
     }
 }

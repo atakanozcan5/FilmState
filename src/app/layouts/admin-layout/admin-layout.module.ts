@@ -24,6 +24,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     MessageModule,
     PaginatorModule,
     AutoCompleteModule,
+    ToastModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [
