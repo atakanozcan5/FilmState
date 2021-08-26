@@ -57,6 +57,16 @@ export class MovieService {
         .pipe(catchError(this.handleError<boolean>('updatePerson', false)));
   }
 
+  public updateGenre(guid:string, genreName:string, code:string): Observable<boolean>{
+    var obj = {
+      Guid:guid,
+      Name:genreName,
+      Code:code
+    }
+
+    return this.http.put<boolean>(this.apiUrl + '/api/updategenre',obj)
+    .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
+  }
 
   public addNewGenre(genreName:string, Code:string):Observable<boolean>{
     var obj ={

@@ -14,7 +14,6 @@ import { TablesComponent } from '../../tables/tables.component';
 import { GenreComponent } from '../../genre/genre.component';
 import { InfoComponent } from '../../info/info.component';
 import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { DropdownModule } from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
@@ -25,7 +24,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {ToastModule} from 'primeng/toast';
-
+import {MultiSelectModule} from 'primeng/multiselect';
 @NgModule({
   imports: [
     CommonModule,
@@ -41,6 +40,7 @@ import {ToastModule} from 'primeng/toast';
     PaginatorModule,
     AutoCompleteModule,
     ToastModule,
+    MultiSelectModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [
@@ -50,9 +50,8 @@ import {ToastModule} from 'primeng/toast';
     GenreComponent,
     InfoComponent,
     MapsComponent,
-    NotificationsComponent,
-    UpgradeComponent,
     
+
   ]
 })
 

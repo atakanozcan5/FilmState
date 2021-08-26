@@ -8,6 +8,11 @@ declare interface TableData {
   headerRow: string[];
   dataRows: string[][];
 }
+
+interface City {
+  name: string,
+  code: string
+}
 @Component({
   selector: 'app-genre',
   templateUrl: './genre.component.html',
@@ -22,8 +27,8 @@ export class GenreComponent implements OnInit {
   guidArray?:string[];
   guidnumber?:string;
   genreGuids:string[];
-  updatedName:string;
-  updatedCode:string;
+
+
 
   msgs: Message[];
 
@@ -31,20 +36,32 @@ export class GenreComponent implements OnInit {
   genreGuid:string;
 
   genreGuidIndex?:number;
-
   
-  constructor(private movieService:MovieService, private  messageService:MessageService) { }
+  cities: City[];
+  selectedCityCodes: string[];
+
+  constructor(private movieService:MovieService, private  messageService:MessageService) { 
+    this.cities = [
+      {name: 'New York', code: 'NY'},
+      {name: 'Rome', code: 'RM'},
+      {name: 'London', code: 'LDN'},
+      {name: 'Istanbul', code: 'IST'},
+      {name: 'Paris', code: 'PRS'}
+  ];
+  }
 
   updatepopup(isOpened:boolean, index:number): void{
 
     this.display = isOpened;
    // this.selectedPersonGuid = this.genreGuids[index];
-    if(!isOpened){
-      this.updatedName = "";
-      this.updatedCode = "";
+    if(isOpened){
+      this.genreGuidIndex = index;
+
+    }else{
+      this.genreGuidIndex = -1;
     }
 
-    this.guidArray = [];
+    //this.guidArray = [];
 }
 
   ngOnInit() {
@@ -76,7 +93,7 @@ export class GenreComponent implements OnInit {
               
              // this.Genres.push(genres[i]);
              this.guidArray.push(genres[i].guid);
-            // console.log("Guid =>>>  " + genres[i].guid + " guidArrayden )> " + this.guidArray[i] )
+             console.log("Guid =>>>  " + genres[i].guid + " guidArrayden )> " + this.guidArray[i] )
           }
         
         });
@@ -116,6 +133,32 @@ export class GenreComponent implements OnInit {
     this.genreGuidIndex = index;
     this.genreGuid = this.Genres[index].guid;
   }
+
+  onUpdateConfirm(genreName:HTMLInputElement, code:HTMLInputElement):void{
+
+    if(genreName.value === "" || code.value === ""){
+      this.msgs =  [ {severity:'error', summary:'Error', detail:'Please fill the empty blanks!'}];
+      return;
+    }
+    //console.log("değişecek guid => " + this.guidArray[this.genreGuidIndex] +  " idsi => " + this.genreGuidIndex + " length => " + this.guidArray.length);
+    this.movieService.updateGenre(this.guidArray[this.genreGuidIndex],genreName.value.trim(), code.value.trim() )
+    .subscribe( bool => {
+      if(bool){
+        this.msgs = [
+          {severity:'success', summary:'Success', detail:'Changes saved succesfully!'}
+         ];
+      }else{
+        this.msgs =  [ {severity:'error', summary:'Error', detail:'There is a unexpected error occured!'}];
+      } 
+      genreName.value = "";
+      code.value = "";
+      this.genreGuidIndex = -1;
+
+    });
+
+  }
+
+
   onConfirm() {
     this.movieService.removeGenreByGuid(this.guidArray[this.genreGuidIndex]).subscribe(b => {
       if(b){
@@ -123,6 +166,8 @@ export class GenreComponent implements OnInit {
       }else{
         console.log("işlem reddedildi!");
       }
+
+      this.genreGuidIndex = -1;
     });
     this.messageService.clear('c');
   }
@@ -130,4 +175,7 @@ export class GenreComponent implements OnInit {
   onReject() {
       this.messageService.clear('c');
   }
+
+
+  
 }

@@ -49,6 +49,11 @@ namespace MovieAPI.BusinessLogic.Concrete
            return this.movieRepository.GetMovieGenres(id);
         }
 
+        public bool UpdateGenre(Genre genre)
+        {
+            return this.movieRepository.UpdateGenre(genre);
+        }
+
         public bool UpdatePerson(Guid personGuid, string personName, string personSurname)
         {
 

@@ -19,6 +19,7 @@ import {DialogModule} from 'primeng/dialog';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import {ListboxModule} from 'primeng/listbox';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {ListboxModule} from 'primeng/listbox';
     NavbarModule,
     FooterModule,
     SidebarModule,
+    MultiSelectModule,
     AppRoutingModule,
     DropdownModule,
     ListboxModule,

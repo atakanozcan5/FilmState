@@ -77,6 +77,8 @@ namespace MovieAPI.Controller
         {
             return this.service.GetAllGenres();
         }
+
+
         [Route("deletegenre")]
         [HttpPut("{guid}")]
         public bool DeleteGenre(string guid)
@@ -84,6 +86,14 @@ namespace MovieAPI.Controller
 
             return this.service.DeleteGenre(new Guid(guid));
         }
+
+        [Route("updategenre")]
+        [HttpPut]
+        public bool UpdateGenre([FromBody]Genre genre)
+        {
+            return this.service.UpdateGenre(genre);
+        }
+
     }
 
     public class A

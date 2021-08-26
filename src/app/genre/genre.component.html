@@ -77,7 +77,7 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
+            <input #genreNameonUpdate class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
             <label for="float-input" id="nameArea">Name</label>
         </span>
     </div>
@@ -85,14 +85,15 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <input #genreCodeOnUpdate class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
             <label for="float-input" id="surnameArea" >Code</label>
         </span>
     </div>
     <br>
     <br>
+    <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
     <ng-template pTemplate="footer">
-        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson()"></button>
+        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "onUpdateConfirm(genreNameonUpdate,genreCodeOnUpdate )"></button>
         <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
     </ng-template>
 </p-dialog>
@@ -119,5 +120,6 @@
     </ng-template>
 </p-toast>
 
+<p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" optionDisabled="inactive"></p-multiSelect>
 
 </body>

@@ -84,21 +84,8 @@
                         </div>
                         <br>
                         <!-- list box -->
-                        <div class="p-fluid p-grid">
-                            <div class="p-field p-col-12 p-md-4">
-                             <span class="p-float-label">
-                               <p-multiSelect
-                                 inputId="multiselect"
-                                 [options]="cities"
-                                 [(ngModel)]="value9"
-                                 optionLabel="name"
-                                 [filter]="false"
-                               ></p-multiSelect>
-                               <label for="multiselect">MultiSelect</label>
-                             </span>
-                           </div>
-                         </div>
-                        
+                        <p-multiSelect [options]="countries" [(ngModel)]="selectedCountries" optionLabel="name"></p-multiSelect>
+
                         <!-- list box -->
                         <div class="action">
                             <button class="action-button" (click) = "addNewGenre(genreName, code)">Add</button>
@@ -131,20 +118,7 @@
                         </div>
                         <br>
                        <!-- list box -->
-                       <div class="p-fluid p-grid">
-                       <div class="p-field p-col-12 p-md-4">
-                        <span class="p-float-label">
-                          <p-multiSelect
-                            inputId="multiselect"
-                            [options]="cities"
-                            [(ngModel)]="value9"
-                            optionLabel="name"
-                            [filter]="false"
-                          ></p-multiSelect>
-                          <label for="multiselect">MultiSelect</label>
-                        </span>
-                      </div>
-                    </div>
+                       
                         <!-- list box -->
                         <div class="action">
                             <button class="action-button">Add</button>

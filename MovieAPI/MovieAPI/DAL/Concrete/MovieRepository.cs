@@ -169,9 +169,28 @@ namespace MovieAPI.DAL.Concrete
                 {
 
                     db.Genre.Remove(genre);
+                    db.SaveChanges();
                     return true;
                 }
             }
+        }
+
+        public bool UpdateGenre(Genre genre)
+        {
+            using(var db = new EldinterndbContext())
+            {
+                Genre g = db.Genre.Where(gnr => gnr.Guid == genre.Guid).FirstOrDefault();
+                if (g == null)
+                {
+                    return false;
+                }
+
+                g.Name = genre.Name;
+                g.Code = genre.Code;
+                db.SaveChanges();
+                return true;
+            }
+        
         }
     }
 }
