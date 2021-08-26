@@ -11,6 +11,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { HomeComponent } from '../../home/home.component';
 import { ActorComponent } from '../../actor/actor.component';
 import { TablesComponent } from '../../tables/tables.component';
+import { AddComponent } from '../../add/add.component';
 import { GenreComponent } from '../../genre/genre.component';
 import { InfoComponent } from '../../info/info.component';
 import { MapsComponent } from '../../maps/maps.component';
@@ -47,6 +48,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
     HomeComponent,
     ActorComponent,
     TablesComponent,
+    AddComponent,
     GenreComponent,
     InfoComponent,
     MapsComponent,
