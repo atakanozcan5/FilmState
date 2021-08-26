@@ -7,9 +7,9 @@ import { AddingFilm } from "./addingmovieservice";
 
 declare var $:any;
 
-interface Country {
-  name: string;
-  code: string;
+interface City {
+  name: string,
+  code: string
 }
 @Component({
   selector: 'app-adding',
@@ -19,27 +19,25 @@ interface Country {
 })
 export class AddComponent implements OnInit {
 
-    countries:Country[];
-    selectedCountries:Country[];
-
     items: SelectItem[]; 
     item: string;
 
+    cities: City[];
+    selectedCities: City[];
+
   constructor(private countryService: AddnewmovieService,private primengConfig: PrimeNGConfig) { 
-    this.countries = [
+    this.cities = [
         {name: 'New York', code: 'NY'},
         {name: 'Rome', code: 'RM'},
         {name: 'London', code: 'LDN'},
         {name: 'Istanbul', code: 'IST'},
         {name: 'Paris', code: 'PRS'}
     ];
-    this.items= [];
-    this.countryService.getCountries().then(c => {this.items = c;});
   }
 
   ngOnInit() {
    
-    this.primengConfig.ripple = true;
+    // this.primengConfig.ripple = true;
 
 
   } 
