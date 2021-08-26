@@ -28,6 +28,11 @@ namespace MovieAPI.BusinessLogic.Concrete
             return this.movieRepository.DeleteGenre(guid);
         }
 
+        public bool DeletePerson(string personGuid)
+        {
+            return this.movieRepository.DeletePerson(personGuid);
+        }
+
         public List<Genre> GetAllGenres()
         {
             return this.movieRepository.GetAllGenres();
@@ -52,6 +57,11 @@ namespace MovieAPI.BusinessLogic.Concrete
         public bool UpdateGenre(Genre genre)
         {
             return this.movieRepository.UpdateGenre(genre);
+        }
+
+        public bool UpdateMovie(Movie film)
+        {
+          return  this.movieRepository.UpdateMovie(film);
         }
 
         public bool UpdatePerson(Guid personGuid, string personName, string personSurname)

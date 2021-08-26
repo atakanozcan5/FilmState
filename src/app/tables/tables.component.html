@@ -21,7 +21,7 @@
                                     <th></th>
                                     <th></th>
                                 </tr>
-                                
+                                 
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of tableData2.dataRows; let i = index;">
@@ -63,7 +63,7 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedName" required="true"> 
+            <input #movieName class="p-inputtext-lg" id="float-input" type="text" pInputText  required="true"> 
             <label for="float-input" id="nameArea">Name</label>
         </span>
     </div>
@@ -71,7 +71,7 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <input #movieDate class="p-inputtext-lg" id="float-input" type="text" pInputText  required="true"> 
             <label for="float-input" id="surnameArea" >Release-Date</label>
         </span>
     </div>
@@ -79,14 +79,15 @@
     <br>
     <div class="sizes">
         <span class="p-float-label">
-            <input class="p-inputtext-lg" id="float-input" type="text" pInputText [(ngModel)]="updatedSurname" required="true"> 
+            <input #movieRate class="p-inputtext-lg" id="float-input" type="text" pInputText  required="true"> 
             <label for="float-input" id="surnameArea" >Rate</label>
         </span>
     </div>
     <br>
     <br>
+    <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
     <ng-template pTemplate="footer">
-        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "updatePerson()"></button>
+        <button pButton pRipple type="button" label="confirm" class="p-button-rounded" (click) = "onConfirm(movieName,movieDate, movieRate )"></button>
         <button pButton pRipple type="button" label="close" class="p-button-rounded" (click) = "updatepopup(false)"></button>
     </ng-template>
 </p-dialog>

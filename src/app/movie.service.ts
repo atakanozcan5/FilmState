@@ -78,11 +78,36 @@ export class MovieService {
 
   }
 
+  public updateMovie(guid:string, name:string, releaseDate:Date, rate:number):Observable<boolean>{
+
+    var obj = {
+      Guid:guid,
+      Name:name,
+      ReleaseDate:releaseDate,
+      Rate:rate
+    }
+    return this.http.put<boolean>(this.apiUrl + '/api/updatemovie',obj)
+    .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
+
+  }
+
   public getGenres():Observable<Genre[]>{
     return this.http.get<Genre[]>(this.apiUrl + '/api/getgenres')
     .pipe(catchError(this.handleError<Genre[]>('getGenres', [])));
 
   }
+
+  public removePersonByGuid(guid:string):Observable<boolean>{
+    var obj = {
+      personGuid:guid
+    }
+    var headers = new Headers();
+    headers.append('Content-Type' , 'application/json');
+    return this.http.put<boolean>(this.apiUrl + '/api/deleteperson',obj)
+    .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
+  }
+
+
 
   public removeGenreByGuid(guid:string):Observable<boolean | ArrayBuffer>{
     var headers = new Headers();

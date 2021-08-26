@@ -4,7 +4,7 @@ import { MovieService } from 'app/movie.service';
 import { min } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { Movies } from 'app/mocks/mock-movies';
-import { PrimeNGConfig, SelectItem } from 'primeng/api';
+import { Message, PrimeNGConfig, SelectItem } from 'primeng/api';
 
 declare interface TableData {
     headerRow: string[];
@@ -26,11 +26,14 @@ export class TablesComponent implements OnInit {
     guidnumber?:string;
     movies:Movie[];
     display:boolean;
-    selectedPersonGuid:string;
-    updatedName:string;
-    updatedDate:string;
+    
+   
+   
     filmGuids:string[];
     rate:string;
+    msgs: Message[];
+
+    private selectedMovieIndex:number;
     constructor(private movieService:MovieService) { 
       this.startIndex = 0;
       this.endIndex = 10;
@@ -41,13 +44,47 @@ export class TablesComponent implements OnInit {
     updatepopup(isOpened:boolean, index:number): void{
 
         this.display = isOpened;
-        this.selectedPersonGuid = this.filmGuids[index];
+
         if(!isOpened){
-          this.updatedName = "";
-          this.updatedDate = "";
-          this.rate;
+          this.selectedMovieIndex = -1;
+        }else{
+          this.selectedMovieIndex = index;
         }
     }
+
+    onConfirm(name:HTMLInputElement, releaseDate:HTMLInputElement, rate:HTMLInputElement){
+      console.log("çağırıldım" + " types = <" + this.movies[this.selectedMovieIndex].releaseDate)
+
+       if(typeof(parseInt(releaseDate.value)) === "number" && typeof(parseFloat(releaseDate.value)) === "number"){
+        console.log("girdim")
+
+        const film = this.movies[this.selectedMovieIndex];
+     //   film.releaseDate.setFullYear( parseInt(releaseDate.value)  );
+        var date = new Date(film.releaseDate);
+        date.setFullYear(parseInt(releaseDate.value));
+        this.movieService.updateMovie( film.guid, name.value,date  ,parseFloat(rate.value))
+        .subscribe(bool => {
+            //pop-upa message service koy 
+            if(bool){
+              this.msgs = [
+                {severity:'success', summary:'Success', detail:'Changes saved succesfully!'}
+               ];
+            }else{
+              this.msgs =  [ {severity:'error', summary:'Error', detail:'There is a unexpected error occured!'}];
+            }
+
+            name.value = "";
+            releaseDate.value = "";
+            rate.value = "";
+            this.selectedMovieIndex = -1;
+        });  
+
+
+
+       }
+
+    }
+
 
     ngOnInit() {
         
@@ -60,7 +97,7 @@ export class TablesComponent implements OnInit {
           dataRows: []
       };
       this.guidArray=[];
-
+      this.msgs = [];
       this.getMoviesByIndexInterval();
 
 

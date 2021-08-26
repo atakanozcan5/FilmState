@@ -94,6 +94,19 @@ namespace MovieAPI.Controller
             return this.service.UpdateGenre(genre);
         }
 
+        [Route("updatemovie")]
+        [HttpPut]
+        public bool UpdateMovie([FromBody] Movie movie)
+        {
+            return this.service.UpdateMovie(movie);
+        }
+
+        [Route("deleteperson")]
+        [HttpPut]
+        public bool DeletePerson([FromBody] string personGuid)
+        {
+            return this.service.DeletePerson(personGuid);
+        }
     }
 
     public class A

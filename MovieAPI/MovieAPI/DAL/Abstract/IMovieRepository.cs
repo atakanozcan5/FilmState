@@ -18,8 +18,8 @@ namespace MovieAPI.DAL.Abstract
         List<MovieGenre> GetMovieGenres(Guid guid);
         bool AddNewGenreType(string genreName, string Code);
         bool UpdateGenre(Genre genre);
-
         bool DeleteGenre(Guid guid);
+        bool DeletePerson(string personGuid);
         List<Genre> GetAllGenres();
     }
 }

@@ -34,6 +34,8 @@ export class InfoComponent implements OnInit {
 
   updatedName:string;
   updatedSurname:string;
+
+  personGuidIndex:number;
   constructor(private route:ActivatedRoute, private movieService: MovieService,private primengConfig: PrimeNGConfig,private messageService: MessageService) { 
     this.items = [];
     for (let i = 0; i < 10; i++) {
@@ -133,6 +135,38 @@ export class InfoComponent implements OnInit {
      
     });
   }
+
+
+  
+
+  onConfirm() {
+    this.messageService.clear('c');
+    this.movieService.removePersonByGuid(this.personGuids[this.personGuidIndex])
+    .subscribe(bool => {
+      if(bool){
+        this.messageService.add({key: 'tl', severity:'success', summary: 'Deleted!', detail: 'record deleted successfully!'});
+      }else{
+        this.messageService.add({key: 'tl', severity:'error', summary: 'Deleted!', detail: 'process denied!'});
+      }
+
+
+      this.personGuidIndex = -1;
+
+    });
+  }
+
+  onReject() {
+      this.messageService.clear('c');
+  }
+
+  showConfirm(index:number) {
+    console.log("show confirm => " + index)
+    this.msgs = [];
+    this.messageService.add({key: 'c', sticky: true, severity:'warn', summary:'Are you sure?', detail:'You are about to delete a person!'});
+    
+    this.personGuidIndex = index;
+  }
+
   
 }
 

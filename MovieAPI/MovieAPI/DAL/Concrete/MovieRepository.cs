@@ -94,7 +94,24 @@ namespace MovieAPI.DAL.Concrete
 
         public bool UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+           using(var db = new EldinterndbContext())
+            {
+               Movie film =  db.Movie.Where(m => m.Guid == movie.Guid).FirstOrDefault();
+                if(film == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    film.Name = movie.Name;
+                    film.Rate = movie.Rate;
+                    film.ReleaseDate = movie.ReleaseDate;
+                    db.Entry(film).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+
+                }
+            }
         }
 
         public bool UpdatePerson(Guid personId, string personName, string personSurname)
@@ -191,6 +208,22 @@ namespace MovieAPI.DAL.Concrete
                 return true;
             }
         
+        }
+
+      
+        public bool DeletePerson(string personGuid)
+        {
+         using(var db = new EldinterndbContext())
+            {
+                Person p = db.Person.Where(p => p.Guid == new Guid(personGuid)).FirstOrDefault();
+                MoviePerson mp = db.MoviePerson.Where(moviePerson => moviePerson.PersonGuid == new Guid(personGuid)).FirstOrDefault();
+                if(p == null || mp == null){return false;}
+                db.MoviePerson.Remove(mp);
+                db.Person.Remove(p);
+                db.SaveChanges();
+                return true;
+
+            }
         }
     }
 }

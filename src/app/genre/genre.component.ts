@@ -162,10 +162,11 @@ export class GenreComponent implements OnInit {
   onConfirm() {
     this.movieService.removeGenreByGuid(this.guidArray[this.genreGuidIndex]).subscribe(b => {
       if(b){
-      console.log("işlem kabul edildi!");
+        this.messageService.add({key: 'tl', severity:'success', summary: 'Deleted!', detail: 'record deleted successfully!'});
       }else{
-        console.log("işlem reddedildi!");
+        this.messageService.add({key: 'tl', severity:'error', summary: 'Deleted!', detail: 'process denied!'});
       }
+
 
       this.genreGuidIndex = -1;
     });
