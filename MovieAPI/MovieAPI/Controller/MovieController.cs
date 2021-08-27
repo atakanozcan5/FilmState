@@ -102,10 +102,10 @@ namespace MovieAPI.Controller
         }
 
         [Route("deleteperson")]
-        [HttpPut]
-        public bool DeletePerson([FromBody] string personGuid)
+        [HttpDelete("{personGuid}")]
+        public bool DeletePerson(string personGuid)
         {
-            return this.service.DeletePerson(personGuid);
+            return this.service.DeletePerson(personGuid.ToString());
         }
     }
 

@@ -97,14 +97,14 @@ export class MovieService {
 
   }
 
-  public removePersonByGuid(guid:string):Observable<boolean>{
+  public removePersonByGuid(personGuid:string):Observable<boolean  | ArrayBuffer>{
     var obj = {
-      personGuid:guid
+      personGuid:personGuid
     }
-    var headers = new Headers();
-    headers.append('Content-Type' , 'application/json');
-    return this.http.put<boolean>(this.apiUrl + '/api/deleteperson',obj)
-    .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
+    var hearderlar = new HttpHeaders();
+    hearderlar.append('Content-Type' , 'application/json');
+    return this.http.put<boolean  | ArrayBuffer>('https://localhost:44356/api/deleteperson?personGuid=' + personGuid,hearderlar)
+    .pipe(catchError(this.handleError<boolean  | ArrayBuffer>('removePersonByGuid', false)));
   }
 
 
@@ -116,6 +116,8 @@ export class MovieService {
     return this.http.delete<boolean>(this.apiUrl + '/api/deletegenre',{params:httpParams})
     .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
   }
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

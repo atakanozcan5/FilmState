@@ -152,7 +152,7 @@ export class InfoComponent implements OnInit {
 
       this.personGuidIndex = -1;
 
-    });
+    }); 
   }
 
   onReject() {

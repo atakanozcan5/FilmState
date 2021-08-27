@@ -216,9 +216,11 @@ namespace MovieAPI.DAL.Concrete
          using(var db = new EldinterndbContext())
             {
                 Person p = db.Person.Where(p => p.Guid == new Guid(personGuid)).FirstOrDefault();
-                MoviePerson mp = db.MoviePerson.Where(moviePerson => moviePerson.PersonGuid == new Guid(personGuid)).FirstOrDefault();
+                List<MoviePerson> mp = db.MoviePerson.Where(moviePerson => moviePerson.PersonGuid == new Guid(personGuid)).ToList();
                 if(p == null || mp == null){return false;}
-                db.MoviePerson.Remove(mp);
+                db.MoviePerson.RemoveRange(mp);
+                db.SaveChanges();
+
                 db.Person.Remove(p);
                 db.SaveChanges();
                 return true;

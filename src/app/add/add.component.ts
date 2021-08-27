@@ -26,6 +26,7 @@ export class AddComponent implements OnInit {
     selectedCities: City[];
 
   constructor(private countryService: AddnewmovieService,private primengConfig: PrimeNGConfig) { 
+    //this.selectedCities = [ ];
     this.cities = [
         {name: 'New York', code: 'NY'},
         {name: 'Rome', code: 'RM'},

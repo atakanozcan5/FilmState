@@ -85,7 +85,7 @@
                         </div>
                         <br>
                         <!-- list box -->
-                        <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" display="chip"></p-multiSelect>
+                        <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" display="chip" [ngModelOptions]="{standalone: true}"></p-multiSelect>
 
                         <!-- list box -->
                         <div class="action">
@@ -115,7 +115,8 @@
                         Film/Films
                         <br><br>
                        <!-- list box -->
-                       <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" display="chip"></p-multiSelect>
+                       <p-multiSelect [options]="cities" [(ngModel)]="selectedCities"  defaultLabel="Select a Film(s)" style="width: 500px;" optionLabel="name" 
+                       display="chip" [ngModelOptions]="{standalone: true} " class="multiselect-custom-virtual-scroll"></p-multiSelect>
 
 
 
