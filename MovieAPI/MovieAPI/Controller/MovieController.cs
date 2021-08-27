@@ -107,6 +107,13 @@ namespace MovieAPI.Controller
         {
             return this.service.DeletePerson(personGuid.ToString());
         }
+
+        [Route("newperson")]
+        [HttpPut]
+        public bool AddNewPerson([FromBody]myAddNewPerson newPerson)
+        {
+            return this.service.AddNewPerson(newPerson.movieGuids, newPerson.titleGuids, newPerson.person);
+        }
     }
 
     public class A
@@ -114,6 +121,14 @@ namespace MovieAPI.Controller
         public string id { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
+    }
+
+    public class myAddNewPerson
+    {
+        public List<Guid> movieGuids { get; set; }
+        public List<Guid> titleGuids { get; set; }
+        public Person person { get; set; }
+
     }
 
 }

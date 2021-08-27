@@ -227,6 +227,52 @@ namespace MovieAPI.DAL.Concrete
 
             }
         }
+
+        public bool AddNewPerson(List<Guid> movieGuid, List<Guid> titleGuid, Person person)
+        {
+            using(var db = new EldinterndbContext())
+            {
+
+                //Movie movie = db.Movie.Where(movie=> movie.Guid == movieGuid).FirstOrDefault();
+
+                Guid newPersonGuid = Guid.NewGuid();
+                person.Guid = newPersonGuid;
+                db.Person.Add(person);
+                db.SaveChanges();
+                for(int j = 0; j < titleGuid.Count; j++)
+                {
+                    for (int i = 0; i < movieGuid.Count; i++)
+                    {
+                        Guid mpGuid = Guid.NewGuid();
+                        MoviePerson mp = new MoviePerson();
+
+                        mp.Guid = mpGuid;
+                        mp.MovieGuid = movieGuid[i];
+                        mp.PersonGuid = newPersonGuid;
+
+                        mp.PersonTitleGuid = titleGuid[j];
+
+
+                        db.MoviePerson.Add(mp);
+                        db.SaveChanges();
+                    }
+
+                }
+                
+                
+                
+              
+
+                
+                
+                return true;
+
+
+            }
+
+            return false;
+        }
+
     }
 }
 /*

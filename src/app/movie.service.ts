@@ -117,6 +117,20 @@ export class MovieService {
     .pipe(catchError(this.handleError<boolean>('addNewGenre', false)));
   }
 
+  public addNewPerson(movieGuids:string[], titleGuids:string[], personName:string, personSurname:string ){
+    var obj = {
+      movieGuids:movieGuids,
+      titleGuids:titleGuids,
+      person:{
+        Name:personName,
+        Surname:personSurname
+      }
+     
+    }
+    return this.http.put<boolean>(this.apiUrl + '/api/newperson', obj)
+    .pipe(catchError(this.handleError<boolean>('addNewPerson', false)));
+
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

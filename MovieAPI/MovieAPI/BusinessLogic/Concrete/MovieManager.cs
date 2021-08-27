@@ -18,6 +18,10 @@ namespace MovieAPI.BusinessLogic.Concrete
             movieRepository = new MovieRepository();
         }
 
+        public bool AddNewPerson(List<Guid> movieGuid, List<Guid> titleGuid, Person person)
+        {
+            return this.movieRepository.AddNewPerson(movieGuid, titleGuid, person);
+        }
         public bool AddNewGenreType(string genreName, string Code)
         {
             return this.movieRepository.AddNewGenreType(genreName, Code);

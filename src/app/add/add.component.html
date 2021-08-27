@@ -63,13 +63,11 @@
                     <br>
                     <!-- list box -->
                     
-                    <div style="max-width: 5px;">
-                     <p-multiSelect [options]="cities" [(ngModel)]="selectedCities"  defaultLabel="Select a Genre(s)"  optionLabel="name" 
-                     display="chip" [ngModelOptions]="{standalone: true} "  class="multiselect-custom">
+                  
+                        <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name" selectedItemsLabel="{0} items selected"></p-multiSelect>
                     
-
-                    </p-multiSelect>
-                    </div>
+                   
+                    
                     
 
                       <!-- list box -->
@@ -100,7 +98,7 @@
                         </div>
                         <br>
                         <!-- list box -->
-                        <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" display="chip" [ngModelOptions]="{standalone: true}"></p-multiSelect>
+                        <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name" selectedItemsLabel="{0} items selected"></p-multiSelect>
 
                         <!-- list box -->
                         <div class="action">
@@ -117,32 +115,34 @@
                     <form class="card-form" style="color: #333333;" >
                         Actor Name
                         <div class="input">
-                            <input type="text" class="input-field" required/>
+                            <input #actorName type="text" class="input-field" required/>
                             <label class="input-label"></label>
                         </div>
                         <br>
                         Actor Surname
                          <div class="input">
-                            <input type="text" class="input-field" required/>
+                            <input #actorSurname type="text" class="input-field" required/>
                             <label class="input-label"></label>
                         </div>
-                        <br>
+                        Movie-Title
+                        <br><br>
+                        
+                        <p-multiSelect [options]="personTitles" [(ngModel)]="selectedTitles" defaultLabel="Select a Title(s)" optionLabel="Name" selectedItemsLabel="{0} items selected"></p-multiSelect>
+                        <br><br>
                         Film/Films
                         <br><br>
                        <!-- list box -->
-                       <p-multiSelect [options]="cities" [(ngModel)]="selectedCities"  defaultLabel="Select a Film(s)" style="width: 500px;" optionLabel="name" 
-                       display="chip" [ngModelOptions]="{standalone: true} " class="multiselect-custom-virtual-scroll"></p-multiSelect>
+                       
+                       <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name" selectedItemsLabel="{0} items selected"></p-multiSelect>
 
-
-
+                       
                         <!-- list box -->
                         <div class="action">
-                            <button class="action-button">Add</button>
+                            <button class="action-button" (click) = "addNewPerson(actorName, actorSurname)">Add</button>
                         </div>
                     </form>
                 </div>
             </div>
-        
         <!-- ----------------------------------------------------------------------------------------------------- -->
         
         <!-- <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-listbox> -->
