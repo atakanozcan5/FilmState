@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddnewmovieService } from 'app/addnewmovie.service';
+import { Movie } from 'app/Movie';
+import { MovieService } from 'app/movie.service';
 import { FilterService } from 'primeng/api';
 import { SelectItem, PrimeNGConfig } from "primeng/api";
 
@@ -25,9 +27,16 @@ export class AddComponent implements OnInit {
     cities: City[];
     selectedCities: City[];
 
-  constructor(private countryService: AddnewmovieService,private primengConfig: PrimeNGConfig) { 
+    movies?:Movie[];
+
+  constructor(private countryService: AddnewmovieService,private primengConfig: PrimeNGConfig, private movieService: MovieService) { 
     //this.selectedCities = [ ];
     this.cities = [
+        {name: 'New York', code: 'NY'},
+        {name: 'Rome', code: 'RM'},
+        {name: 'London', code: 'LDN'},
+        {name: 'Istanbul', code: 'IST'},
+        {name: 'Paris', code: 'PRS'},
         {name: 'New York', code: 'NY'},
         {name: 'Rome', code: 'RM'},
         {name: 'London', code: 'LDN'},
@@ -39,7 +48,7 @@ export class AddComponent implements OnInit {
   ngOnInit() {
    
     // this.primengConfig.ripple = true;
-
+    //this.movieService.getMovies().sun
 
   } 
 

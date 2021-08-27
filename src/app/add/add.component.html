@@ -58,6 +58,21 @@
                         </span>
                     </div>
                     <br>
+
+                    Genre
+                    <br>
+                    <!-- list box -->
+                    
+                    <div style="max-width: 5px;">
+                     <p-multiSelect [options]="cities" [(ngModel)]="selectedCities"  defaultLabel="Select a Genre(s)"  optionLabel="name" 
+                     display="chip" [ngModelOptions]="{standalone: true} "  class="multiselect-custom">
+                    
+
+                    </p-multiSelect>
+                    </div>
+                    
+
+                      <!-- list box -->
                     <div class="action">
                         <button class="action-button">Add Film</button>
                     </div>
@@ -145,6 +160,7 @@
     .card-image{
         background-image: url('https://www.europasc.sk/userfiles/blog/titulka.video.jpg');
     }
+    
 </style>
 
 
