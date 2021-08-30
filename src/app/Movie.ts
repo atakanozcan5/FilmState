@@ -1,5 +1,5 @@
 export interface Movie{
-    guid:string;
+    guid?:string;
     name:string;
     runTime:number;
     rate:number;
@@ -7,11 +7,11 @@ export interface Movie{
     description:string;
     posterURL:string;
     genres:string[];
-    personGuids:string[];
-    personTitles:string[];
-    moviePersonNames:string[];
-    moviePersonSurnames:string[];
-    moviePersonBirthDates:Date[];
+    personGuids?:string[];
+    personTitles?:string[];
+    moviePersonNames?:string[];
+    moviePersonSurnames?:string[];
+    moviePersonBirthDates?:Date[];
     fullYear?:number;
 
 }

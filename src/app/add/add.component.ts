@@ -35,19 +35,28 @@ export class AddComponent implements OnInit {
     selectedCities: City[]; 
 
     movies?:Movie[];
-    selectedMovies?:Movie[];
+    selectedMovies:Movie[] = [];
     personTitles:Title[];
-    selectedTitles?:Title[];
+    selectedTitles:Title[] = [];
 
     movieGuids:string[];
     titleGuids:string[];
+
+    selectedTitleNames?:string[] = [];
+
+    genres:string[];
+    selectedGenres?:string[];
+
   constructor(private countryService: AddnewmovieService,private primengConfig: PrimeNGConfig, private movieService: MovieService) { 
     //this.selectedCities = [ ];
+    this.genres = ['sci-fi','dram','action', 'thriller'];
     this.movies = [];
     this.movieGuids = [];
     this.titleGuids = [];
+    this.selectedMovies = [];
+    this.selectedTitles = [];
     this.personTitles = [
-      {Guid:'48a75d50-a4ba-aab2-112c-6483f5ea0a42' , Name:'Star', Code:'STR'},
+      {Guid:'61532542-0285-11ec-9a03-0242ac130003' , Name:'Star', Code:'STR'},
       {Guid:'8240f7b2-6823-9177-1952-2226f8b23565', Name:'Writer', Code:'WRT'},
       {Guid:'d563de41-1a99-d120-506d-7cd05bcc4483', Name:'Director', Code:'DIR'},
       {Guid:'f96024e9-6832-c40e-ba7c-04bd4468770a', Name:'Producer', Code:'PRD'}
@@ -69,7 +78,8 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+    this.movieGuids = [];
+    this.titleGuids = [];
     // this.primengConfig.ripple = true;
     this.movieService.getMovieByInterval(0,100).subscribe(mvs => {
 
@@ -79,20 +89,60 @@ export class AddComponent implements OnInit {
   } 
 
   addNewPerson(actorName:HTMLInputElement, actorSurname:HTMLInputElement):void{
-
+   // console.log("movie count => " + this.selectedMovies.length);
     this.selectedMovies.forEach(element => {
       this.movieGuids.push(element.guid);
+   //   console.log("mantar => " + element.guid);
     });
-    this.personTitles.forEach(element => {
-      this.titleGuids.push(element.Guid)
+    this.selectedTitles.forEach(element => {
+       this.titleGuids.push(element.Guid);
+      console.log("mantar123 => " + element.Name);
+
     });
-      this.movieService.addNewPerson(this.movieGuids , this.titleGuids, actorName.value, actorSurname.value).subscribe(bool => {
-        if(bool){
-          console.log("işlem tamamlandı!");
-        }else{
-          console.log("bir sıkıntı var !");
+       this.movieService.addNewPerson(this.movieGuids , this.titleGuids, actorName.value, actorSurname.value).subscribe(bool => {
+         if(bool){
+           console.log("işlem tamamlandı!");
+         }else{
+           console.log("bir sıkıntı var !");
+         }
+       });
+  }
+
+  addNewFilm(filmName:HTMLInputElement, runTime:HTMLInputElement,
+    rate:HTMLInputElement, releaseDate:HTMLInputElement,posterUrl:HTMLInputElement,
+    description:HTMLInputElement
+    ):void{
+
+      // console.log("film name => " + filmName.value + " runTime => " + runTime.value
+      // + " rate => " + rate.value + " release date => " + releaseDate.value + " posterUrl => " +
+      // posterUrl.value + " description => " + description.value
+      // )
+
+      // this.selectedGenres.forEach(element => {
+      //   console.log(" genre name => " + element);
+      // });
+
+      let film:Movie = {
+        description:description.value,
+        name:filmName.value,
+        genres:this.selectedGenres,
+        posterURL:posterUrl.value,
+        rate: parseFloat(rate.value),
+        runTime:parseInt(runTime.value),
+        releaseDate: new Date(releaseDate.value)
+
+      };
+
+      this.movieService.addNewMovie(film).subscribe(
+        bool => {
+
+          if(bool){
+            console.log("işlem tamamlandı!");
+          }else{
+            console.log("bir hata meydana geldi!");
+          }
         }
-      });
+      );
   }
 
 }

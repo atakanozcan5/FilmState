@@ -114,6 +114,13 @@ namespace MovieAPI.Controller
         {
             return this.service.AddNewPerson(newPerson.movieGuids, newPerson.titleGuids, newPerson.person);
         }
+
+        [Route("addnewmovie")]
+        [HttpPut]
+        public bool AddNewMovie([FromBody] Film film)
+        {
+            return this.service.AddNewMovie(film);
+        }
     }
 
     public class A

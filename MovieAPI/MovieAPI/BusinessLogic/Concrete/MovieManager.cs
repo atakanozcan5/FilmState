@@ -73,5 +73,10 @@ namespace MovieAPI.BusinessLogic.Concrete
 
             return this.movieRepository.UpdatePerson(personGuid, personName, personSurname);
         }
+
+        public bool AddNewMovie(Film film)
+        {
+            return this.movieRepository.AddNewMovie(film);
+        }
     }
 }

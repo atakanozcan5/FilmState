@@ -15,7 +15,7 @@ namespace MovieAPI.BusinessLogic.Abstract
 
         List<MovieGenre> GetMovieGenres(Guid id);
         bool UpdatePerson(Guid personGuid, string personName, string personSurname);
-
+        bool AddNewMovie(Film film);
         bool UpdateGenre(Genre genre);
         bool UpdateMovie(Movie film);
         bool AddNewGenreType(string genreName, string Code);

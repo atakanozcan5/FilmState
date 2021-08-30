@@ -31,6 +31,12 @@ export class MovieService {
     .pipe(catchError(this.handleError<Movie>('getMovieById', null)) );
   }
 
+  public addNewMovie(film:Movie):Observable<boolean>{
+
+    return this.http.put<boolean>(this.apiUrl + '/api/addnewmovie',film)
+        .pipe(catchError(this.handleError<boolean>('addNewMovie', false)));
+  }
+
 /**
  * 
  * @param min 

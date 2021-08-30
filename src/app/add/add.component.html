@@ -15,45 +15,40 @@
                     <br>
                     Film Name
                     <div class="input">
-                        <input type="text" class="input-field" required/>
+                        <input #filmName type="text" class="input-field" required/>
                         <label class="input-label"></label>
                     </div>
                     <br>
                     Run Time
                     <div class="input">
-                        <input type="text" class="input-field" required/>
+                        <input #runTime type="text" class="input-field" required/>
                         <label class="input-label"></label>
                     </div>
                     <br>
                     Rate
                     <div class="input">
-                        <input type="text" class="input-field" required/>
+                        <input #rate type="text" class="input-field" required/>
                         <label class="input-label"></label>
                     </div>
                     <br>
                     Release Date
                     <div class="input">
-                        <input type="text" class="input-field" required/>
+                        <input #releaseDate type="text" class="input-field" required/>
                         <label class="input-label"></label>
                     </div>
                     <br>
                     Poster Url
                     <div class="input">
-                        <input type="text" class="input-field" required/>
+                        <input #posterUrl type="text" class="input-field" required/>
                         <label class="input-label"></label>
                     </div>
-                    <br>
-                    Release-Date
-                     <div class="input">
-                        <input type="text" class="input-field" required/>
-                        <label class="input-label"></label>
-                    </div>
+                    
                     <br>
                     Description
                     <br>
                     <div class="p-field p-col-12 p-md-4">
                         <span class="p-float-label">
-                            <textarea inputId="textarea" rows="5" style="resize: none;" cols="44" pInputTextarea></textarea>
+                            <textarea #description inputId="textarea" rows="5" style="resize: none;" cols="44" pInputTextarea></textarea>
                             <label for="textarea"></label>
                         </span>
                     </div>
@@ -64,15 +59,20 @@
                     <!-- list box -->
                     
                   
-                        <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name" selectedItemsLabel="{0} items selected"></p-multiSelect>
+                        <p-multiSelect [options]="genres" [(ngModel)]="selectedGenres" defaultLabel="Select a Genre(s)"  selectedItemsLabel="{0} items selected"
+                        [ngModelOptions]="{standalone: true}"
+                        ></p-multiSelect>
                     
                    
                     
                     
 
-                      <!-- list box -->
+                      <!--list box -->
                     <div class="action">
-                        <button class="action-button">Add Film</button>
+                        <button class="action-button"
+                        (click) = "addNewFilm(filmName, runTime, rate, releaseDate, posterUrl,description) "
+                        
+                        >Add Film</button>
                     </div>
                 </form>
             </div>
@@ -97,10 +97,10 @@
                             <label class="input-label"></label>
                         </div>
                         <br>
-                        <!-- list box -->
+                        <!-- list box 
                         <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name" selectedItemsLabel="{0} items selected"></p-multiSelect>
 
-                        <!-- list box -->
+                         list box -->
                         <div class="action">
                             <button class="action-button" (click) = "addNewGenre(genreName, code)">Add</button>
                         </div>
@@ -127,16 +127,19 @@
                         Movie-Title
                         <br><br>
                         
-                        <p-multiSelect [options]="personTitles" [(ngModel)]="selectedTitles" defaultLabel="Select a Title(s)" optionLabel="Name" selectedItemsLabel="{0} items selected"></p-multiSelect>
+                        <p-multiSelect [options]="personTitles" [(ngModel)]="selectedTitles" defaultLabel="Select a Title(s)" optionLabel="Name" name="Name" selectedItemsLabel="{0} items selected"
+                        [ngModelOptions]="{standalone: true}"
+                        ></p-multiSelect>
                         <br><br>
                         Film/Films
                         <br><br>
                        <!-- list box -->
                        
-                       <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name" selectedItemsLabel="{0} items selected"></p-multiSelect>
+                       <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name"  selectedItemsLabel="{0} items selected"
+                       [ngModelOptions]="{standalone: true}"
+                       ></p-multiSelect>
 
-                       
-                        <!-- list box -->
+                       <!--list box -->
                         <div class="action">
                             <button class="action-button" (click) = "addNewPerson(actorName, actorSurname)">Add</button>
                         </div>

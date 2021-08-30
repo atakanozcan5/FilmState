@@ -273,6 +273,42 @@ namespace MovieAPI.DAL.Concrete
             return false;
         }
 
+        public bool AddNewMovie(Film film)
+        {
+            using(var db = new EldinterndbContext())
+            {
+                Guid movieGuid = Guid.NewGuid();
+                Movie movie = new Movie();
+                movie.Guid = movieGuid;
+                movie.Name = film.Name;
+                movie.Description = film.Description;
+                movie.PosterUrl = film.PosterURL;
+                movie.Rate = film.Rate;
+                movie.ReleaseDate = film.ReleaseDate;
+                movie.Runtime = film.RunTime;
+
+                List<Guid> genreGuids = new List<Guid>();
+                foreach(var genreName in film.Genres)
+                {
+                 genreGuids.Add(db.Genre.Where(g => g.Name == genreName).ToList()[0].Guid);
+                }
+
+                foreach(Guid genreGuid in genreGuids)
+                {
+                    MovieGenre mg = new MovieGenre();
+                    mg.Guid = Guid.NewGuid();
+                    mg.GenreGuid = genreGuid;
+                    mg.MovieGuid = movieGuid;
+                    db.Add(mg);
+                }
+                
+                db.Add(movie);
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
     }
 }
 /*
