@@ -1,7 +1,7 @@
 # FilmState Angular
 
 
-![alt text](src/assets/img/opt_lbd_angular_thumbnail.jpg)
+![alt text](src/assets/img/readme-title.jpg)
 
 ## Terminal Commands
 
