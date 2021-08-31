@@ -1,5 +1,5 @@
-# [FilmState Angular]
-[![version][version-badge]][CHANGELOG] ![license][license-badge]
+# FilmState Angular
+
 
 ![alt text](src/assets/img/opt_lbd_angular_thumbnail.jpg)
 
