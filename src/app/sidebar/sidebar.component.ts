@@ -14,7 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/genre', title: 'Genres',  icon:'pe-7s-next-2', class: '' },
     { path: '/info', title: 'Film Info',  icon:'pe-7s-safe', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
-    { path: '/add', title: 'Add Film Details',  icon:'pe-7s-plus', class: '' },
+    { path: '/add', title: 'Add Film Details',  icon:'pe-7s-plus', class: 'active-pro' },
     // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'pe-7s-rocket', class: 'active-pro' },
 ];
 

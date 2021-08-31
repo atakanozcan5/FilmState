@@ -62,11 +62,11 @@
                 <li><a href="#">Separated link</a></li>
               </ul>
         </li> -->
-        <li *ngIf="isMobileMenu()">
+        <!-- <li *ngIf="isMobileMenu()">
             <a>
                 <p>Log out</p>
             </a>
-        </li>
+        </li> -->
         <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a  [routerLink]="[menuItem.path]">

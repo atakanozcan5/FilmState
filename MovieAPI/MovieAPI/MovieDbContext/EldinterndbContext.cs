@@ -32,7 +32,7 @@ namespace MovieAPI.MovieDbContext
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseNpgsql(
-                @"Host=localhost;Database=eldinterndb;Username=postgres;Password=85850505;Port=5433;"
+                @"Host=eld-ss-19;Database=eldinterndb;Username=intern;Password=eldintern;Port=1455;"
                 );
                 }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
