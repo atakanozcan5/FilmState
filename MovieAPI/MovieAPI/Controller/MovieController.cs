@@ -63,12 +63,14 @@ namespace MovieAPI.Controller
 
        
         [Route("newgenre")]
-        [HttpPut("{genre}")]
-        public bool AddNewGenreType([FromBody] Genre genre)
+        [HttpPut("{filmNames}")]
+        public bool AddNewGenreType(string[] filmNames, [FromBody] Genre genre)
         {
+            var inconditions = filmNames[0].Split(",").ToArray();
 
-            
-            return this.service.AddNewGenreType(genre.Name, genre.Code);
+
+
+            return this.service.AddNewGenreType(genre.Name, genre.Code, filmNames);
         }
 
         [Route("getgenres")]

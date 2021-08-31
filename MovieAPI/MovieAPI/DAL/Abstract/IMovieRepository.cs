@@ -16,7 +16,7 @@ namespace MovieAPI.DAL.Abstract
         bool DeleteMovie(Movie movie);
         bool UpdatePerson(Guid personId, string personName, string personSurname);
         List<MovieGenre> GetMovieGenres(Guid guid);
-        bool AddNewGenreType(string genreName, string Code);
+        bool AddNewGenreType(string genreName, string Code, Guid[] guids) ;
         bool UpdateGenre(Genre genre);
         bool DeleteGenre(Guid guid);
         bool DeletePerson(string personGuid);

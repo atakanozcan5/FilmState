@@ -22,9 +22,16 @@ namespace MovieAPI.BusinessLogic.Concrete
         {
             return this.movieRepository.AddNewPerson(movieGuid, titleGuid, person);
         }
-        public bool AddNewGenreType(string genreName, string Code)
+        public bool AddNewGenreType(string genreName, string Code, string[] filmNames)
         {
-            return this.movieRepository.AddNewGenreType(genreName, Code);
+            var inconditions = filmNames[0].Split(",");
+            Guid[] guids = new Guid[inconditions.Length];
+            for(int i = 0;i < inconditions.Length; i++)
+            {
+                guids[i] = new Guid(inconditions[i]);
+
+            }
+            return this.movieRepository.AddNewGenreType(genreName, Code,guids);
         }
 
         public bool DeleteGenre(Guid guid)

@@ -94,7 +94,7 @@
                         <br><br>
                        <!-- list box -->
                        
-                       <p-multiSelect [options]="movies" [(ngModel)]="selectedMovies" defaultLabel="Select a Film(s)" optionLabel="name"  selectedItemsLabel="{0} items selected"
+                       <p-multiSelect [options]="movies" [(ngModel)]="selectedFilmsGenreCard" defaultLabel="Select a Film(s)" optionLabel="name"  selectedItemsLabel="{0} items selected"
                        [ngModelOptions]="{standalone: true}"
                        ></p-multiSelect>
 
@@ -164,6 +164,7 @@
     }
     
 </style>
+<p-toast position="top-right" key="tright"></p-toast>
 
 
 </body>

@@ -137,27 +137,61 @@ namespace MovieAPI.DAL.Concrete
             }
         }
 
-        public bool AddNewGenreType(string genreName, string Code)
+        public bool AddNewGenreType(string genreName, string Code, Guid[] guids)
         {
             using (var db = new EldinterndbContext())
             {
-                List<Genre> genres = db.Genre.ToList();
-                if (genres.FirstOrDefault(
-                    g =>
-                    {
-                        return g.Name.Equals(genreName) || g.Code.Equals(Code);
-                    }) == null)
+                Genre genre = db.Genre.Where(g => g.Name == genreName || g.Code == Code).FirstOrDefault();
+
+                if (genre != null)
                 {
-                    Genre genre = new Genre();
-                    genre.Guid = Guid.NewGuid();
-                    genre.Name = genreName;
-                    genre.Code = Code;
-                    db.Genre.Add(genre);
-                    db.SaveChanges();
+                    foreach (Guid guid in guids)
+                    {
+                        if(db.MovieGenre.Where(mg => mg.MovieGuid == guid && mg.GenreGuid == genre.Guid).FirstOrDefault() != null)
+                        {
+                            continue;
+                        }
+                        MovieGenre mg = new MovieGenre();
+                        Guid g = Guid.NewGuid();
+                        mg.Guid = g;
+                        mg.MovieGuid = guid;
+                        mg.GenreGuid = genre.Guid;
+                        db.Add(mg);
+                        db.SaveChanges();
+                    }
+                    return true;
+                }
+                else{
+                    //List<Genre> genres = db.Genre.ToList();
+                    //if (genres.FirstOrDefault(
+                    //    g =>
+                    //    {
+                    //        return g.Name.Equals(genreName) || g.Code.Equals(Code);
+                    //    }) == null)
+                    //{
+
+                        Genre newGenre = new Genre();
+                        newGenre.Guid = Guid.NewGuid();
+                        newGenre.Name = genreName;
+                        newGenre.Code = Code;
+                        db.Genre.Add(newGenre);
+                        db.SaveChanges();
+
+                        foreach (Guid guid in guids)
+                        {
+                            MovieGenre mg = new MovieGenre();
+                            Guid g = Guid.NewGuid();
+                            mg.Guid = g;
+                            mg.MovieGuid = guid;
+                            mg.GenreGuid = newGenre.Guid;
+                            db.Add(mg);
+                            db.SaveChanges();
+                        }
+
                     return true;
                 }
 
-
+                
             }
 
             return false;
@@ -178,13 +212,16 @@ namespace MovieAPI.DAL.Concrete
            using(var db = new EldinterndbContext())
             {
                 Genre genre = db.Genre.Where(g => g.Guid == guid).FirstOrDefault();
+
                 if(genre == null)
                 {
                     return false;
                 }
                 else
                 {
-
+                    
+                    db.MovieGenre.RemoveRange(db.MovieGenre.Where(mg => mg.GenreGuid == genre.Guid).ToList());
+                    db.SaveChanges();
                     db.Genre.Remove(genre);
                     db.SaveChanges();
                     return true;

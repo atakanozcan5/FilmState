@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AddnewmovieService } from 'app/addnewmovie.service';
 import { Movie } from 'app/Movie';
 import { MovieService } from 'app/movie.service';
-import { FilterService } from 'primeng/api';
+import { FilterService, MessageService } from 'primeng/api';
 import { SelectItem, PrimeNGConfig } from "primeng/api";
 import { elementAt } from 'rxjs/operators';
 
@@ -47,7 +47,9 @@ export class AddComponent implements OnInit {
     genres:string[];
     selectedGenres?:string[];
 
-  constructor(private countryService: AddnewmovieService,private primengConfig: PrimeNGConfig, private movieService: MovieService) { 
+    selectedFilmsGenreCard?:Movie[] = [];
+
+  constructor(private countryService: AddnewmovieService,private primengConfig: PrimeNGConfig, private movieService: MovieService, private messageService: MessageService) { 
     //this.selectedCities = [ ];
     this.genres = ['sci-fi','dram','action', 'thriller'];
     this.movies = [];
@@ -108,6 +110,31 @@ export class AddComponent implements OnInit {
        });
   }
 
+  addNewGenre(genreName:HTMLInputElement, code:HTMLInputElement):void{
+
+  let movieNames:string[] = [];
+
+  this.selectedFilmsGenreCard.forEach(element => {
+        movieNames.push(element.guid);
+        console.log("movie pushlandı => "  + element.name);
+  });
+    this.movieService.addNewGenre(genreName.value, code.value, movieNames).subscribe(
+      bool => {
+       
+        if(bool){
+          this.messageService.add({key: 'tright', severity:'success', summary: 'Added', detail: 'New genre added successfully!'});
+        }else{
+          this.messageService.add({key: 'tright', severity:'error', summary: 'Added!', detail: 'process denied!'});
+        }
+        genreName.value = "";
+        code.value = "";
+        this.selectedFilmsGenreCard = [];
+      }
+
+    );
+
+}
+
   addNewFilm(filmName:HTMLInputElement, runTime:HTMLInputElement,
     rate:HTMLInputElement, releaseDate:HTMLInputElement,posterUrl:HTMLInputElement,
     description:HTMLInputElement
@@ -137,10 +164,18 @@ export class AddComponent implements OnInit {
         bool => {
 
           if(bool){
-            console.log("işlem tamamlandı!");
+            this.messageService.add({key: 'tright', severity:'success', summary: 'Added', detail: 'New movie added successfully!'});
           }else{
-            console.log("bir hata meydana geldi!");
+            this.messageService.add({key: 'tright', severity:'error', summary: 'Added!', detail: 'process denied!'});
           }
+
+        description.value = "";
+        filmName.value = "";
+        posterUrl.value = "";
+        runTime.value = "";
+        rate.value = "";
+        releaseDate.value = "";
+        this.selectedGenres = [];
         }
       );
   }

@@ -99,25 +99,7 @@ export class GenreComponent implements OnInit {
         });
     }
 
-  addNewGenre(genreName:HTMLInputElement, code:HTMLInputElement):void{
-
   
-      this.movieService.addNewGenre(genreName.value, code.value).subscribe(
-        bool => {
-         
-          if(bool){
-            this.msgs = [
-              {severity:'success', summary:'Success', detail:'Changes saved succesfully!'}
-             ];
-          }else{
-            this.msgs =  [ {severity:'error', summary:'Error', detail:'There is a unexpected error occured!'}];
-          }
-          genreName.value = "";
-          code.value = "";
-        }
-      );
-
-  }
   
   specifyRouteInput(guid:number):void{
     console.log("guid ney => " + guid + " guidin kendisi >= " + this.guidArray[guid]);

@@ -7,29 +7,7 @@
         <div class="row">
             <!--  -->
 
-            <div class="main_card">
-                <div class="cardadd">
-                    <form class="card-form" style="color: #333333;">
-                        Genre Name
-                        <div class="input">
-                            <input #genreName type="text" class="input-field" required/>
-                            <label class="input-label"></label>
-                      </div>
-                        <br>
-                        Code
-                         <div class="input">
-                            <input #code type="text" class="input-field" required/>
-                            <label class="input-label"></label>
-                        </div>
-                        <br>
-                        <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
- 
-                        <div class="action">
-                            <button class="action-button" (click) = "addNewGenre(genreName, code)">Add</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+           
 
             <!--  -->
             <div class="col-md-12">
@@ -120,7 +98,7 @@
     </ng-template>
 </p-toast>
 
-<p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" optionDisabled="inactive"></p-multiSelect>
+
 <p-toast position="top-right" key="tl"></p-toast>
 
 </body>
